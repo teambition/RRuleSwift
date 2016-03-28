@@ -6,9 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D31B13AA1CA8F37F00D0B863 /* RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13A91CA8F37F00D0B863 /* RRule.swift */; };
+		D31B13AE1CA90A9A00D0B863 /* RecurrenceRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13AD1CA90A9A00D0B863 /* RecurrenceRule.swift */; };
+		D31B13B01CA90ED300D0B863 /* RecurrenceFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13AF1CA90ED300D0B863 /* RecurrenceFrequency.swift */; };
+		D31B13B21CA91F9000D0B863 /* EKWeekday+RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13B11CA91F9000D0B863 /* EKWeekday+RRule.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		D31B13971CA8E02E00D0B863 /* RRuleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RRuleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D31B139C1CA8E02E00D0B863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D31B13A91CA8F37F00D0B863 /* RRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRule.swift; sourceTree = "<group>"; };
+		D31B13AD1CA90A9A00D0B863 /* RecurrenceRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecurrenceRule.swift; sourceTree = "<group>"; };
+		D31B13AF1CA90ED300D0B863 /* RecurrenceFrequency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecurrenceFrequency.swift; sourceTree = "<group>"; };
+		D31B13B11CA91F9000D0B863 /* EKWeekday+RRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EKWeekday+RRule.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +53,10 @@
 		D31B13991CA8E02E00D0B863 /* RRuleSwift */ = {
 			isa = PBXGroup;
 			children = (
+				D31B13AD1CA90A9A00D0B863 /* RecurrenceRule.swift */,
+				D31B13A91CA8F37F00D0B863 /* RRule.swift */,
+				D31B13AF1CA90ED300D0B863 /* RecurrenceFrequency.swift */,
+				D31B13B11CA91F9000D0B863 /* EKWeekday+RRule.swift */,
 			);
 			path = RRuleSwift;
 			sourceTree = "<group>";
@@ -132,6 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D31B13AA1CA8F37F00D0B863 /* RRule.swift in Sources */,
+				D31B13B21CA91F9000D0B863 /* EKWeekday+RRule.swift in Sources */,
+				D31B13AE1CA90A9A00D0B863 /* RecurrenceRule.swift in Sources */,
+				D31B13B01CA90ED300D0B863 /* RecurrenceFrequency.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +251,7 @@
 		D31B13A01CA8E02E00D0B863 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -242,12 +262,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		D31B13A11CA8E02E00D0B863 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

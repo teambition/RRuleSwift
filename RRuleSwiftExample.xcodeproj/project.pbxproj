@@ -10,19 +10,19 @@
 		D31B137C1CA8D8E400D0B863 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B137B1CA8D8E400D0B863 /* AppDelegate.swift */; };
 		D31B13811CA8D8E400D0B863 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D31B137F1CA8D8E400D0B863 /* Main.storyboard */; };
 		D31B13831CA8D8E400D0B863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D31B13821CA8D8E400D0B863 /* Assets.xcassets */; };
-		D31B13A41CA8E1BA00D0B863 /* RRuleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31B13A31CA8E1BA00D0B863 /* RRuleSwift.framework */; };
-		D31B13A51CA8E1BA00D0B863 /* RRuleSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D31B13A31CA8E1BA00D0B863 /* RRuleSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D31B13A81CA8E29000D0B863 /* RRuleExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13A71CA8E29000D0B863 /* RRuleExampleViewController.swift */; };
+		D31B13B51CA9571900D0B863 /* RRuleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31B13B41CA9571900D0B863 /* RRuleSwift.framework */; };
+		D31B13B61CA9571900D0B863 /* RRuleSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D31B13B41CA9571900D0B863 /* RRuleSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D31B13A61CA8E1BA00D0B863 /* Embed Frameworks */ = {
+		D31B13B71CA9571900D0B863 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D31B13A51CA8E1BA00D0B863 /* RRuleSwift.framework in Embed Frameworks */,
+				D31B13B61CA9571900D0B863 /* RRuleSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,8 +35,8 @@
 		D31B13801CA8D8E400D0B863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D31B13821CA8D8E400D0B863 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D31B13871CA8D8E400D0B863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D31B13A31CA8E1BA00D0B863 /* RRuleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = RRuleSwift.framework; path = "/Users/hongxin/Library/Developer/Xcode/DerivedData/RRuleSwift-bsfdvctfhfasceecxzjeffpridns/Build/Products/Debug-iphoneos/RRuleSwift.framework"; sourceTree = "<absolute>"; };
 		D31B13A71CA8E29000D0B863 /* RRuleExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRuleExampleViewController.swift; sourceTree = "<group>"; };
+		D31B13B41CA9571900D0B863 /* RRuleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = RRuleSwift.framework; path = "/Users/hongxin/Library/Developer/Xcode/DerivedData/RRuleSwift-bsfdvctfhfasceecxzjeffpridns/Build/Products/Debug-iphonesimulator/RRuleSwift.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D31B13A41CA8E1BA00D0B863 /* RRuleSwift.framework in Frameworks */,
+				D31B13B51CA9571900D0B863 /* RRuleSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +54,7 @@
 		D31B136F1CA8D8E400D0B863 = {
 			isa = PBXGroup;
 			children = (
-				D31B13A31CA8E1BA00D0B863 /* RRuleSwift.framework */,
+				D31B13B41CA9571900D0B863 /* RRuleSwift.framework */,
 				D31B137A1CA8D8E400D0B863 /* RRuleSwiftExample */,
 				D31B13791CA8D8E400D0B863 /* Products */,
 			);
@@ -90,7 +90,7 @@
 				D31B13741CA8D8E400D0B863 /* Sources */,
 				D31B13751CA8D8E400D0B863 /* Frameworks */,
 				D31B13761CA8D8E400D0B863 /* Resources */,
-				D31B13A61CA8E1BA00D0B863 /* Embed Frameworks */,
+				D31B13B71CA9571900D0B863 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
