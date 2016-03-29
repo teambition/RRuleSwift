@@ -11,6 +11,7 @@
 		D31B13AE1CA90A9A00D0B863 /* RecurrenceRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13AD1CA90A9A00D0B863 /* RecurrenceRule.swift */; };
 		D31B13B01CA90ED300D0B863 /* RecurrenceFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13AF1CA90ED300D0B863 /* RecurrenceFrequency.swift */; };
 		D31B13B21CA91F9000D0B863 /* EKWeekday+RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13B11CA91F9000D0B863 /* EKWeekday+RRule.swift */; };
+		D31B13BF1CAA7F1800D0B863 /* Generators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13BE1CAA7F1700D0B863 /* Generators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		D31B13AD1CA90A9A00D0B863 /* RecurrenceRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecurrenceRule.swift; sourceTree = "<group>"; };
 		D31B13AF1CA90ED300D0B863 /* RecurrenceFrequency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecurrenceFrequency.swift; sourceTree = "<group>"; };
 		D31B13B11CA91F9000D0B863 /* EKWeekday+RRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EKWeekday+RRule.swift"; sourceTree = "<group>"; };
+		D31B13BE1CAA7F1700D0B863 /* Generators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				D31B13AD1CA90A9A00D0B863 /* RecurrenceRule.swift */,
 				D31B13A91CA8F37F00D0B863 /* RRule.swift */,
+				D31B13BE1CAA7F1700D0B863 /* Generators.swift */,
 				D31B13AF1CA90ED300D0B863 /* RecurrenceFrequency.swift */,
 				D31B13B11CA91F9000D0B863 /* EKWeekday+RRule.swift */,
 			);
@@ -151,6 +154,7 @@
 				D31B13B21CA91F9000D0B863 /* EKWeekday+RRule.swift in Sources */,
 				D31B13AE1CA90A9A00D0B863 /* RecurrenceRule.swift in Sources */,
 				D31B13B01CA90ED300D0B863 /* RecurrenceFrequency.swift in Sources */,
+				D31B13BF1CAA7F1800D0B863 /* Generators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
