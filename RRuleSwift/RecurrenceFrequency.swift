@@ -15,7 +15,7 @@ public enum RecurrenceFrequency {
     case Minutely
     case Secondly
 
-    public func toString() -> String {
+    internal func toString() -> String {
         switch self {
         case .Secondly: return "SECONDLY"
         case .Minutely: return "MINUTELY"
@@ -27,7 +27,7 @@ public enum RecurrenceFrequency {
         }
     }
 
-    public static func frequencyFromString(string: String) -> RecurrenceFrequency? {
+    internal static func frequencyFromString(string: String) -> RecurrenceFrequency? {
         switch string {
         case "SECONDLY": return .Secondly
         case "MINUTELY": return .Minutely

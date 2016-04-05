@@ -18,6 +18,20 @@ private let kWeekdaysDic: [String: EKWeekday] = ["Monday": .Monday, "Tuesday": .
 private let kEKWeekdays: [EKWeekday] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
 private let kMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
+extension RecurrenceFrequency {
+    func toString() -> String {
+        switch self {
+        case .Secondly: return "SECONDLY"
+        case .Minutely: return "MINUTELY"
+        case .Hourly: return "HOURLY"
+        case .Daily: return "DAILY"
+        case .Weekly: return "WEEKLY"
+        case .Monthly: return "MONTHLY"
+        case .Yearly: return "YEARLY"
+        }
+    }
+}
+
 extension EKWeekday {
     func toNumberSymbol() -> Int {
         switch self {

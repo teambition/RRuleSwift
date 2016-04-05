@@ -8,8 +8,8 @@
 
 import EventKit
 
-extension EKWeekday {
-    func toSymbol() -> String {
+internal extension EKWeekday {
+    internal func toSymbol() -> String {
         switch self {
         case .Monday: return "MO"
         case .Tuesday: return "TU"
@@ -21,7 +21,7 @@ extension EKWeekday {
         }
     }
 
-    func toNumberSymbol() -> Int {
+    internal func toNumberSymbol() -> Int {
         switch self {
         case .Monday: return 0
         case .Tuesday: return 1
@@ -33,7 +33,7 @@ extension EKWeekday {
         }
     }
 
-    static func weekdayFromSymbol(symbol: String) -> EKWeekday? {
+    internal static func weekdayFromSymbol(symbol: String) -> EKWeekday? {
         switch symbol {
         case "MO", "0": return EKWeekday.Monday
         case "TU", "1": return EKWeekday.Tuesday

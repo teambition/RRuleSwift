@@ -17,6 +17,13 @@ public struct RRule {
         return dateFormatter
     }
 
+    internal static var ISO8601DateFormatter: NSDateFormatter {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        return dateFormatter
+    }
+
     public static func ruleFromString(string: String) -> RecurrenceRule? {
         let string = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         guard let range = string.rangeOfString("RRULE:") where range.startIndex == string.startIndex else {

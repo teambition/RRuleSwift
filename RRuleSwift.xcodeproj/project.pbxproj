@@ -12,6 +12,9 @@
 		D31B13B01CA90ED300D0B863 /* RecurrenceFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13AF1CA90ED300D0B863 /* RecurrenceFrequency.swift */; };
 		D31B13B21CA91F9000D0B863 /* EKWeekday+RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13B11CA91F9000D0B863 /* EKWeekday+RRule.swift */; };
 		D31B13BF1CAA7F1800D0B863 /* Generators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13BE1CAA7F1700D0B863 /* Generators.swift */; };
+		D3D7E3E51CB3E03F00BF052F /* nlp.js in Resources */ = {isa = PBXBuildFile; fileRef = D3D7E3E31CB3E03F00BF052F /* nlp.js */; };
+		D3D7E3E61CB3E03F00BF052F /* rrule.js in Resources */ = {isa = PBXBuildFile; fileRef = D3D7E3E41CB3E03F00BF052F /* rrule.js */; };
+		D3D7E3E81CB3EBC800BF052F /* JavaScriptBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D7E3E71CB3EBC800BF052F /* JavaScriptBridge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		D31B13AF1CA90ED300D0B863 /* RecurrenceFrequency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecurrenceFrequency.swift; sourceTree = "<group>"; };
 		D31B13B11CA91F9000D0B863 /* EKWeekday+RRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EKWeekday+RRule.swift"; sourceTree = "<group>"; };
 		D31B13BE1CAA7F1700D0B863 /* Generators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generators.swift; sourceTree = "<group>"; };
+		D3D7E3E31CB3E03F00BF052F /* nlp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = nlp.js; sourceTree = "<group>"; };
+		D3D7E3E41CB3E03F00BF052F /* rrule.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = rrule.js; sourceTree = "<group>"; };
+		D3D7E3E71CB3EBC800BF052F /* JavaScriptBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JavaScriptBridge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +61,13 @@
 		D31B13991CA8E02E00D0B863 /* RRuleSwift */ = {
 			isa = PBXGroup;
 			children = (
+				D3D7E3E21CB3E03F00BF052F /* lib */,
 				D31B13AD1CA90A9A00D0B863 /* RecurrenceRule.swift */,
 				D31B13A91CA8F37F00D0B863 /* RRule.swift */,
 				D31B13BE1CAA7F1700D0B863 /* Generators.swift */,
 				D31B13AF1CA90ED300D0B863 /* RecurrenceFrequency.swift */,
 				D31B13B11CA91F9000D0B863 /* EKWeekday+RRule.swift */,
+				D3D7E3E71CB3EBC800BF052F /* JavaScriptBridge.swift */,
 			);
 			path = RRuleSwift;
 			sourceTree = "<group>";
@@ -71,6 +79,15 @@
 			);
 			name = "Supporting Files";
 			path = "RRuleSwift/Supporting Files";
+			sourceTree = "<group>";
+		};
+		D3D7E3E21CB3E03F00BF052F /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				D3D7E3E31CB3E03F00BF052F /* nlp.js */,
+				D3D7E3E41CB3E03F00BF052F /* rrule.js */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +157,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3D7E3E51CB3E03F00BF052F /* nlp.js in Resources */,
+				D3D7E3E61CB3E03F00BF052F /* rrule.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +172,7 @@
 				D31B13AA1CA8F37F00D0B863 /* RRule.swift in Sources */,
 				D31B13B21CA91F9000D0B863 /* EKWeekday+RRule.swift in Sources */,
 				D31B13AE1CA90A9A00D0B863 /* RecurrenceRule.swift in Sources */,
+				D3D7E3E81CB3EBC800BF052F /* JavaScriptBridge.swift in Sources */,
 				D31B13B01CA90ED300D0B863 /* RecurrenceFrequency.swift in Sources */,
 				D31B13BF1CAA7F1800D0B863 /* Generators.swift in Sources */,
 			);
