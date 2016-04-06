@@ -340,7 +340,7 @@ extension RRuleExampleViewController: UIPickerViewDataSource, UIPickerViewDelega
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch pickerView.tag {
         case 0:
-            rule.frequency = kFrequenciesDic[kFrequencies[row]]
+            rule.frequency = kFrequenciesDic[kFrequencies[row]]!
         case 1:
             rule.interval = row + 1
         case 2:

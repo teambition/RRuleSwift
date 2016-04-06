@@ -14,7 +14,7 @@ public struct RecurrenceRule {
     public var calendar = NSCalendar.currentCalendar()
 
     /// The frequency of the recurrence rule.
-    public var frequency: RecurrenceFrequency!
+    public var frequency: RecurrenceFrequency
 
     /// Specifies how often the recurrence rule repeats over the unit of time indicated by its frequency. For example, a recurrence rule with a frequency type of RecurrenceFrequency.Weekly and an interval of 2 repeats every two weeks.
     ///
