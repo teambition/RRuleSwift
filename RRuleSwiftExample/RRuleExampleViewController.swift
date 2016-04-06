@@ -50,7 +50,7 @@ class RRuleExampleViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var tableView: UITableView!
 
-    private var rule = RecurrenceRule() {
+    private var rule = RecurrenceRule(recurrenceWithFrequency: .Daily) {
         didSet {
             textView.text = rule.toRRuleString()
             tableView.reloadData()
@@ -67,13 +67,13 @@ class RRuleExampleViewController: UIViewController {
         navigationItem.title = "RRuleSwift Example"
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .None
-        rule = RecurrenceRule()
+        rule = RecurrenceRule(recurrenceWithFrequency: .Daily)
         textView.delegate = self
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .Plain, target: self, action: #selector(resetButtonTapped(_:)))
     }
 
     func resetButtonTapped(sender: UIBarButtonItem) {
-        rule = RecurrenceRule()
+        rule = RecurrenceRule(recurrenceWithFrequency: .Daily)
     }
 }
 
@@ -131,11 +131,7 @@ extension RRuleExampleViewController: UITableViewDataSource, UITableViewDelegate
             cell.pickerView.tag = indexPath.section
             cell.pickerView.dataSource = self
             cell.pickerView.delegate = self
-            if let frequency = rule.frequency {
-                cell.pickerView.selectRow(kFrequencyStrings.indexOf(frequency.toString()) ?? 0, inComponent: 0, animated: true)
-            } else {
-                cell.pickerView.selectRow(0, inComponent: 0, animated: true)
-            }
+            cell.pickerView.selectRow(kFrequencyStrings.indexOf(rule.frequency.toString()) ?? 0, inComponent: 0, animated: true)
             return cell
         case (1, _):
             let cell = tableView.dequeueReusableCellWithIdentifier(kPickerViewCellID, forIndexPath: indexPath) as! PickerViewCell
@@ -374,7 +370,7 @@ extension RRuleExampleViewController: UITextViewDelegate {
 
         if text == "\n" {
             textView.resignFirstResponder()
-            rule = RecurrenceRule.ruleWithString(textView.text) ?? RecurrenceRule()
+            rule = RecurrenceRule.ruleWithString(textView.text) ?? RecurrenceRule(recurrenceWithFrequency: .Daily)
             return false
         }
         return true

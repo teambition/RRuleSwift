@@ -12,6 +12,7 @@
 		D31B13B01CA90ED300D0B863 /* RecurrenceFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13AF1CA90ED300D0B863 /* RecurrenceFrequency.swift */; };
 		D31B13B21CA91F9000D0B863 /* EKWeekday+RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13B11CA91F9000D0B863 /* EKWeekday+RRule.swift */; };
 		D31B13BF1CAA7F1800D0B863 /* Generators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13BE1CAA7F1700D0B863 /* Generators.swift */; };
+		D382675C1CB4BCFB0080C91A /* NSDate+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = D382675B1CB4BCFB0080C91A /* NSDate+Comparison.swift */; };
 		D3D7E3E51CB3E03F00BF052F /* nlp.js in Resources */ = {isa = PBXBuildFile; fileRef = D3D7E3E31CB3E03F00BF052F /* nlp.js */; };
 		D3D7E3E61CB3E03F00BF052F /* rrule.js in Resources */ = {isa = PBXBuildFile; fileRef = D3D7E3E41CB3E03F00BF052F /* rrule.js */; };
 		D3D7E3E81CB3EBC800BF052F /* JavaScriptBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D7E3E71CB3EBC800BF052F /* JavaScriptBridge.swift */; };
@@ -25,6 +26,7 @@
 		D31B13AF1CA90ED300D0B863 /* RecurrenceFrequency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecurrenceFrequency.swift; sourceTree = "<group>"; };
 		D31B13B11CA91F9000D0B863 /* EKWeekday+RRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EKWeekday+RRule.swift"; sourceTree = "<group>"; };
 		D31B13BE1CAA7F1700D0B863 /* Generators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generators.swift; sourceTree = "<group>"; };
+		D382675B1CB4BCFB0080C91A /* NSDate+Comparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Comparison.swift"; sourceTree = "<group>"; };
 		D3D7E3E31CB3E03F00BF052F /* nlp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = nlp.js; sourceTree = "<group>"; };
 		D3D7E3E41CB3E03F00BF052F /* rrule.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = rrule.js; sourceTree = "<group>"; };
 		D3D7E3E71CB3EBC800BF052F /* JavaScriptBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JavaScriptBridge.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				D31B13BE1CAA7F1700D0B863 /* Generators.swift */,
 				D31B13AF1CA90ED300D0B863 /* RecurrenceFrequency.swift */,
 				D31B13B11CA91F9000D0B863 /* EKWeekday+RRule.swift */,
+				D382675B1CB4BCFB0080C91A /* NSDate+Comparison.swift */,
 				D3D7E3E71CB3EBC800BF052F /* JavaScriptBridge.swift */,
 			);
 			path = RRuleSwift;
@@ -171,6 +174,7 @@
 			files = (
 				D31B13AA1CA8F37F00D0B863 /* RRule.swift in Sources */,
 				D31B13B21CA91F9000D0B863 /* EKWeekday+RRule.swift in Sources */,
+				D382675C1CB4BCFB0080C91A /* NSDate+Comparison.swift in Sources */,
 				D31B13AE1CA90A9A00D0B863 /* RecurrenceRule.swift in Sources */,
 				D3D7E3E81CB3EBC800BF052F /* JavaScriptBridge.swift in Sources */,
 				D31B13B01CA90ED300D0B863 /* RecurrenceFrequency.swift in Sources */,

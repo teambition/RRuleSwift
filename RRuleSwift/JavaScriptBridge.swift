@@ -9,6 +9,22 @@
 import Foundation
 import EventKit
 
+internal struct JavaScriptBridge {
+    internal static func rrulejs() -> String? {
+        let libPath = NSBundle(identifier: "Teambition.RRuleSwift")?.pathForResource("rrule", ofType: "js") ?? NSBundle.mainBundle().pathForResource("rrule", ofType: "js")
+        guard let rrulelibPath = libPath else {
+            return nil
+        }
+
+        do {
+            let rrulejs = try NSString(contentsOfFile: rrulelibPath, encoding: NSUTF8StringEncoding) as String
+            return rrulejs
+        } catch _ {
+            return nil
+        }
+    }
+}
+
 internal extension RecurrenceFrequency {
     private func toJSONFrequency() -> String {
         switch self {
@@ -38,11 +54,7 @@ internal extension EKWeekday {
 }
 
 internal extension RecurrenceRule {
-    internal func toJSONString() -> String? {
-        guard let frequency = frequency else {
-            return nil
-        }
-
+    internal func toJSONString() -> String {
         var jsonString = "freq: \(frequency.toJSONFrequency()),"
         jsonString += "interval: \(max(1, interval)),"
         jsonString += "wkst: \(firstDayOfWeek.toJSONSymbol()),"
@@ -126,10 +138,7 @@ internal extension RecurrenceRule {
         }
 
         if let byhour = byhour {
-            let byhourStrings = byhour.flatMap({ (hour) -> String? in
-                guard 0...23 ~= hour else {
-                    return nil
-                }
+            let byhourStrings = byhour.map({ (hour) -> String in
                 return String(hour)
             })
             if byhourStrings.count > 0 {
@@ -138,10 +147,7 @@ internal extension RecurrenceRule {
         }
 
         if let byminute = byminute {
-            let byminuteStrings = byminute.flatMap({ (minute) -> String? in
-                guard 0...59 ~= minute else {
-                    return nil
-                }
+            let byminuteStrings = byminute.map({ (minute) -> String in
                 return String(minute)
             })
             if byminuteStrings.count > 0 {
@@ -150,10 +156,7 @@ internal extension RecurrenceRule {
         }
 
         if let bysecond = bysecond {
-            let bysecondStrings = bysecond.flatMap({ (second) -> String? in
-                guard 0...59 ~= second else {
-                    return nil
-                }
+            let bysecondStrings = bysecond.map({ (second) -> String in
                 return String(second)
             })
             if bysecondStrings.count > 0 {

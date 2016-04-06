@@ -7,6 +7,7 @@ import RRuleSwift
 let dateFormatter: NSDateFormatter = {
     let dateFormatter = NSDateFormatter()
     dateFormatter.timeZone = NSTimeZone.defaultTimeZone()
+    dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss EEE"
     return dateFormatter
 }()
@@ -16,12 +17,17 @@ if let rule1 = RecurrenceRule.ruleWithString(ruleString1) {
     let weekdays = rule1.byweekday!.map({ (weekday) -> Int in
         return weekday.rawValue
     })
-    print(weekdays)
 }
 
 let ruleString2 = "RRULE:FREQ=YEARLY;COUNT=5;WKST=MO"
 if let rule2 = RecurrenceRule.ruleWithString(ruleString2) {
-    let dates = rule2.allOccurrences().map({ (date) -> String in
+    let allDates = rule2.allOccurrences().map({ (date) -> String in
+        return dateFormatter.stringFromDate(date)
+    })
+
+    let date = dateFormatter.dateFromString("2017-01-01 00:00:00 Sun")
+    let otherDate = dateFormatter.dateFromString("2020-01-01 00:00:00 Wed")
+    let betweenDates = rule2.occurrencesBetween(date: date!, andDate: otherDate!).map({ (date) -> String in
         return dateFormatter.stringFromDate(date)
     })
 }

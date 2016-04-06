@@ -27,6 +27,7 @@ public struct RRule {
     public static func ruleFromString(string: String) -> RecurrenceRule? {
         let string = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         guard let range = string.rangeOfString("RRULE:") where range.startIndex == string.startIndex else {
+            print("error: invalid rule string, must be started with 'RRULE:'")
             return nil
         }
         let ruleString = string.substringFromIndex(range.endIndex)
@@ -37,7 +38,8 @@ public struct RRule {
             return rule
         }
 
-        var recurrenceRule = RecurrenceRule()
+        var recurrenceRule = RecurrenceRule(recurrenceWithFrequency: .Daily)
+        var ruleFrequency: RecurrenceFrequency?
         for rule in rules {
             let ruleComponents = rule.componentsSeparatedByString("=")
             guard ruleComponents.count == 2 else {
@@ -50,7 +52,7 @@ public struct RRule {
             }
 
             if ruleName == "FREQ" {
-                recurrenceRule.frequency = RecurrenceFrequency.frequencyFromString(ruleValue)
+                ruleFrequency = RecurrenceFrequency.frequencyFromString(ruleValue)
             }
 
             if ruleName == "INTERVAL" {
@@ -83,7 +85,7 @@ public struct RRule {
 
             if ruleName == "BYSETPOS" {
                 let bysetpos = ruleValue.componentsSeparatedByString(",").flatMap({ (string) -> Int? in
-                    guard let setpo = Int(ruleValue) where (-366...366 ~= setpo) && (setpo != 0) else {
+                    guard let setpo = Int(string) where (-366...366 ~= setpo) && (setpo != 0) else {
                         return nil
                     }
                     return setpo
@@ -93,7 +95,7 @@ public struct RRule {
 
             if ruleName == "BYYEARDAY" {
                 let byyearday = ruleValue.componentsSeparatedByString(",").flatMap({ (string) -> Int? in
-                    guard let yearday = Int(ruleValue) where (-366...366 ~= yearday) && (yearday != 0) else {
+                    guard let yearday = Int(string) where (-366...366 ~= yearday) && (yearday != 0) else {
                         return nil
                     }
                     return yearday
@@ -103,7 +105,7 @@ public struct RRule {
 
             if ruleName == "BYMONTH" {
                 let bymonth = ruleValue.componentsSeparatedByString(",").flatMap({ (string) -> Int? in
-                    guard let month = Int(ruleValue) where 1...12 ~= month else {
+                    guard let month = Int(string) where 1...12 ~= month else {
                         return nil
                     }
                     return month
@@ -113,7 +115,7 @@ public struct RRule {
 
             if ruleName == "BYWEEKNO" {
                 let byweekno = ruleValue.componentsSeparatedByString(",").flatMap({ (string) -> Int? in
-                    guard let weekno = Int(ruleValue) where (-53...53 ~= weekno) && (weekno != 0) else {
+                    guard let weekno = Int(string) where (-53...53 ~= weekno) && (weekno != 0) else {
                         return nil
                     }
                     return weekno
@@ -123,7 +125,7 @@ public struct RRule {
 
             if ruleName == "BYMONTHDAY" {
                 let bymonthday = ruleValue.componentsSeparatedByString(",").flatMap({ (string) -> Int? in
-                    guard let monthday = Int(ruleValue) where (-31...31 ~= monthday) && (monthday != 0) else {
+                    guard let monthday = Int(string) where (-31...31 ~= monthday) && (monthday != 0) else {
                         return nil
                     }
                     return monthday
@@ -142,34 +144,31 @@ public struct RRule {
 
             if ruleName == "BYHOUR" {
                 let byhour = ruleValue.componentsSeparatedByString(",").flatMap({ (string) -> Int? in
-                    guard let hour = Int(ruleValue) where 0...23 ~= hour else {
-                        return nil
-                    }
-                    return hour
+                    return Int(string)
                 })
                 recurrenceRule.byhour = byhour.sort(<)
             }
 
             if ruleName == "BYMINUTE" {
                 let byminute = ruleValue.componentsSeparatedByString(",").flatMap({ (string) -> Int? in
-                    guard let minute = Int(ruleValue) where 0...59 ~= minute else {
-                        return nil
-                    }
-                    return minute
+                    return Int(string)
                 })
                 recurrenceRule.byminute = byminute.sort(<)
             }
 
             if ruleName == "BYSECOND" {
                 let bysecond = ruleValue.componentsSeparatedByString(",").flatMap({ (string) -> Int? in
-                    guard let second = Int(ruleValue) where 0...59 ~= second else {
-                        return nil
-                    }
-                    return second
+                    return Int(string)
                 })
                 recurrenceRule.bysecond = bysecond.sort(<)
             }
         }
+
+        guard let frequency = ruleFrequency else {
+            print("error: invalid frequency")
+            return nil
+        }
+        recurrenceRule.frequency = frequency
 
         return recurrenceRule
     }
@@ -177,9 +176,7 @@ public struct RRule {
     public static func stringFromRule(rule: RecurrenceRule) -> String {
         var rruleString = "RRULE:"
 
-        if let frequency = rule.frequency {
-            rruleString += "FREQ=\(frequency.toString());"
-        }
+        rruleString += "FREQ=\(rule.frequency.toString());"
 
         let interval = max(1, rule.interval)
         rruleString += "INTERVAL=\(interval);"
@@ -264,10 +261,7 @@ public struct RRule {
         }
 
         if let byhour = rule.byhour {
-            let byhourStrings = byhour.flatMap({ (hour) -> String? in
-                guard 0...23 ~= hour else {
-                    return nil
-                }
+            let byhourStrings = byhour.map({ (hour) -> String in
                 return String(hour)
             })
             if byhourStrings.count > 0 {
@@ -276,10 +270,7 @@ public struct RRule {
         }
 
         if let byminute = rule.byminute {
-            let byminuteStrings = byminute.flatMap({ (minute) -> String? in
-                guard 0...59 ~= minute else {
-                    return nil
-                }
+            let byminuteStrings = byminute.map({ (minute) -> String in
                 return String(minute)
             })
             if byminuteStrings.count > 0 {
@@ -288,10 +279,7 @@ public struct RRule {
         }
 
         if let bysecond = rule.bysecond {
-            let bysecondStrings = bysecond.flatMap({ (second) -> String? in
-                guard 0...59 ~= second else {
-                    return nil
-                }
+            let bysecondStrings = bysecond.map({ (second) -> String in
                 return String(second)
             })
             if bysecondStrings.count > 0 {

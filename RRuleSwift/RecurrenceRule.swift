@@ -14,7 +14,7 @@ public struct RecurrenceRule {
     public var calendar = NSCalendar.currentCalendar()
 
     /// The frequency of the recurrence rule.
-    public var frequency: RecurrenceFrequency?
+    public var frequency: RecurrenceFrequency!
 
     /// Specifies how often the recurrence rule repeats over the unit of time indicated by its frequency. For example, a recurrence rule with a frequency type of RecurrenceFrequency.Weekly and an interval of 2 repeats every two weeks.
     ///
@@ -62,16 +62,18 @@ public struct RecurrenceRule {
     /// The days of the week associated with the recurrence rule, as an array of EKWeekday objects.
     public var byweekday: [EKWeekday]?
 
-    /// The hours of the day associated with the recurrence rule, as an array of integers. Values can be from 0 to 23.
+    /// The hours of the day associated with the recurrence rule, as an array of integers.
     public var byhour: [Int]?
 
-    /// The minutes of the hour associated with the recurrence rule, as an array of integers. Values can be from 0 to 59.
+    /// The minutes of the hour associated with the recurrence rule, as an array of integers.
     public var byminute: [Int]?
 
-    /// The seconds of the minute associated with the recurrence rule, as an array of integers. Values can be from 0 to 59.
+    /// The seconds of the minute associated with the recurrence rule, as an array of integers.
     public var bysecond: [Int]?
 
-    public init() { }
+    public init(recurrenceWithFrequency type: RecurrenceFrequency) {
+        frequency = type
+    }
 
     public func toRRuleString() -> String {
         return RRule.stringFromRule(self)
