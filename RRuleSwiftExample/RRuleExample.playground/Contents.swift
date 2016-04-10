@@ -13,14 +13,14 @@ let dateFormatter: NSDateFormatter = {
 }()
 
 let ruleString1 = "RRULE:FREQ=WEEKLY;DTSTART=20160328T070000Z;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
-if let rule1 = RecurrenceRule.ruleWithString(ruleString1) {
+if let rule1 = RecurrenceRule(recurrenceWithRRuleString: ruleString1) {
     let weekdays = rule1.byweekday!.map({ (weekday) -> Int in
         return weekday.rawValue
     })
 }
 
 let ruleString2 = "RRULE:FREQ=YEARLY;COUNT=5;WKST=MO"
-if let rule2 = RecurrenceRule.ruleWithString(ruleString2) {
+if let rule2 = RecurrenceRule(recurrenceWithRRuleString: ruleString2) {
     let allDates = rule2.allOccurrences().map({ (date) -> String in
         return dateFormatter.stringFromDate(date)
     })

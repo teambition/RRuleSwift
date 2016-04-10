@@ -71,15 +71,19 @@ public struct RecurrenceRule {
     /// The seconds of the minute associated with the recurrence rule, as an array of integers.
     public var bysecond: [Int]?
 
-    public init(recurrenceWithFrequency type: RecurrenceFrequency) {
-        frequency = type
+    public init(frequency: RecurrenceFrequency) {
+        self.frequency = frequency
+    }
+
+    public init?(recurrenceWithRRuleString rruleString: String) {
+        if let recurrenceRule = RRule.ruleFromString(rruleString) {
+            self = recurrenceRule
+        } else {
+            return nil
+        }
     }
 
     public func toRRuleString() -> String {
         return RRule.stringFromRule(self)
-    }
-
-    public static func ruleWithString(rruleString: String) -> RecurrenceRule? {
-        return RRule.ruleFromString(rruleString)
     }
 }

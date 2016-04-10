@@ -38,7 +38,7 @@ public struct RRule {
             return rule
         }
 
-        var recurrenceRule = RecurrenceRule(recurrenceWithFrequency: .Daily)
+        var recurrenceRule = RecurrenceRule(frequency: .Daily)
         var ruleFrequency: RecurrenceFrequency?
         for rule in rules {
             let ruleComponents = rule.componentsSeparatedByString("=")

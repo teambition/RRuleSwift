@@ -50,7 +50,7 @@ class RRuleExampleViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var tableView: UITableView!
 
-    private var rule = RecurrenceRule(recurrenceWithFrequency: .Daily) {
+    private var rule = RecurrenceRule(frequency: .Daily) {
         didSet {
             textView.text = rule.toRRuleString()
             tableView.reloadData()
@@ -67,13 +67,13 @@ class RRuleExampleViewController: UIViewController {
         navigationItem.title = "RRuleSwift Example"
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .None
-        rule = RecurrenceRule(recurrenceWithFrequency: .Daily)
+        rule = RecurrenceRule(frequency: .Daily)
         textView.delegate = self
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .Plain, target: self, action: #selector(resetButtonTapped(_:)))
     }
 
     func resetButtonTapped(sender: UIBarButtonItem) {
-        rule = RecurrenceRule(recurrenceWithFrequency: .Daily)
+        rule = RecurrenceRule(frequency: .Daily)
     }
 }
 
@@ -370,7 +370,7 @@ extension RRuleExampleViewController: UITextViewDelegate {
 
         if text == "\n" {
             textView.resignFirstResponder()
-            rule = RecurrenceRule.ruleWithString(textView.text) ?? RecurrenceRule(recurrenceWithFrequency: .Daily)
+            rule = RecurrenceRule(recurrenceWithRRuleString: textView.text) ?? RecurrenceRule(frequency: .Daily)
             return false
         }
         return true

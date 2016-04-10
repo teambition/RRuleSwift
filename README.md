@@ -1,5 +1,5 @@
 #RRuleSwift
-Swift library for working with recurrence rules of calendar dates.
+Swift rrule library for working with recurrence rules of calendar dates.
 
 ![Example](Gif/RRuleSwiftExample.gif "RRuleSwiftExample")
 
@@ -7,7 +7,7 @@ RRuleSwift is based on [rrule.js](https://github.com/jkbrzt/rrule).
 
 ##How To Get Started
 ###Carthage
-Specify "RRuleSwift" in your Cartfile:
+Specify "RRuleSwift" in your ```Cartfile```:
 ```ogdl 
 github "teambition/RRuleSwift"
 ```
@@ -15,7 +15,7 @@ github "teambition/RRuleSwift"
 ###Usage
 ##### Initialization
 ```swift
-var recurrenceRule = RecurrenceRule(recurrenceWithFrequency: .Daily)
+var recurrenceRule = RecurrenceRule(frequency: .Daily)
 recurrenceRule.calendar = ...
 recurrenceRule.frequency = ...
 recurrenceRule.interval = ...
@@ -36,7 +36,7 @@ recurrenceRule.bysecond = ...
 #####  Rule form string
 ```swift
 let ruleString = "RRULE:FREQ=MONTHLY;DTSTART=20160404T021000Z;COUNT=5;INTERVAL=2;WKST=MO;BYDAY=MO,TU"
-let rule = RecurrenceRule.ruleWithString(ruleString)
+let rule = RecurrenceRule(recurrenceWithRRuleString: ruleString)
 ```
 
 #####  String form rule
@@ -49,7 +49,7 @@ print(ruleString)
 ##### Occurrence generator
 ```swift
 let ruleString = "RRULE:FREQ=YEARLY;COUNT=5;WKST=MO"
-if let rule = RecurrenceRule.ruleWithString(ruleString) {
+if let rule = RecurrenceRule(recurrenceWithRRuleString: ruleString) {
     let allDates = rule.allOccurrences()
     print(allDates)
     /*
