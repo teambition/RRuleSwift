@@ -191,100 +191,82 @@ public struct RRule {
             rruleString += "COUNT=\(count);"
         }
 
-        if let bysetpos = rule.bysetpos {
-            let bysetposStrings = bysetpos.flatMap({ (setpo) -> String? in
-                guard (-366...366 ~= setpo) && (setpo != 0) else {
-                    return nil
-                }
-                return String(setpo)
-            })
-            if bysetposStrings.count > 0 {
-                rruleString += "BYSETPOS=\(bysetposStrings.joinWithSeparator(","));"
+        let bysetposStrings = rule.bysetpos.flatMap({ (setpo) -> String? in
+            guard (-366...366 ~= setpo) && (setpo != 0) else {
+                return nil
             }
+            return String(setpo)
+        })
+        if bysetposStrings.count > 0 {
+            rruleString += "BYSETPOS=\(bysetposStrings.joinWithSeparator(","));"
         }
 
-        if let byyearday = rule.byyearday {
-            let byyeardayStrings = byyearday.flatMap({ (yearday) -> String? in
-                guard (-366...366 ~= yearday) && (yearday != 0) else {
-                    return nil
-                }
-                return String(yearday)
-            })
-            if byyeardayStrings.count > 0 {
-                rruleString += "BYYEARDAY=\(byyeardayStrings.joinWithSeparator(","));"
+        let byyeardayStrings = rule.byyearday.flatMap({ (yearday) -> String? in
+            guard (-366...366 ~= yearday) && (yearday != 0) else {
+                return nil
             }
+            return String(yearday)
+        })
+        if byyeardayStrings.count > 0 {
+            rruleString += "BYYEARDAY=\(byyeardayStrings.joinWithSeparator(","));"
         }
 
-        if let bymonth = rule.bymonth {
-            let bymonthStrings = bymonth.flatMap({ (month) -> String? in
-                guard 1...12 ~= month else {
-                    return nil
-                }
-                return String(month)
-            })
-            if bymonthStrings.count > 0 {
-                rruleString += "BYMONTH=\(bymonthStrings.joinWithSeparator(","));"
+        let bymonthStrings = rule.bymonth.flatMap({ (month) -> String? in
+            guard 1...12 ~= month else {
+                return nil
             }
+            return String(month)
+        })
+        if bymonthStrings.count > 0 {
+            rruleString += "BYMONTH=\(bymonthStrings.joinWithSeparator(","));"
         }
 
-        if let byweekno = rule.byweekno {
-            let byweeknoStrings = byweekno.flatMap({ (weekno) -> String? in
-                guard (-53...53 ~= weekno) && (weekno != 0) else {
-                    return nil
-                }
-                return String(weekno)
-            })
-            if byweeknoStrings.count > 0 {
-                rruleString += "BYWEEKNO=\(byweeknoStrings.joinWithSeparator(","));"
+        let byweeknoStrings = rule.byweekno.flatMap({ (weekno) -> String? in
+            guard (-53...53 ~= weekno) && (weekno != 0) else {
+                return nil
             }
+            return String(weekno)
+        })
+        if byweeknoStrings.count > 0 {
+            rruleString += "BYWEEKNO=\(byweeknoStrings.joinWithSeparator(","));"
         }
 
-        if let bymonthday = rule.bymonthday {
-            let bymonthdayStrings = bymonthday.flatMap({ (monthday) -> String? in
-                guard (-31...31 ~= monthday) && (monthday != 0) else {
-                    return nil
-                }
-                return String(monthday)
-            })
-            if bymonthdayStrings.count > 0 {
-                rruleString += "BYMONTHDAY=\(bymonthdayStrings.joinWithSeparator(","));"
+        let bymonthdayStrings = rule.bymonthday.flatMap({ (monthday) -> String? in
+            guard (-31...31 ~= monthday) && (monthday != 0) else {
+                return nil
             }
+            return String(monthday)
+        })
+        if bymonthdayStrings.count > 0 {
+            rruleString += "BYMONTHDAY=\(bymonthdayStrings.joinWithSeparator(","));"
         }
 
-        if let byweekday = rule.byweekday {
-            let byweekdaySymbols = byweekday.map({ (weekday) -> String in
-                return weekday.toSymbol()
-            })
-            if byweekdaySymbols.count > 0 {
-                rruleString += "BYDAY=\(byweekdaySymbols.joinWithSeparator(","));"
-            }
+        let byweekdaySymbols = rule.byweekday.map({ (weekday) -> String in
+            return weekday.toSymbol()
+        })
+        if byweekdaySymbols.count > 0 {
+            rruleString += "BYDAY=\(byweekdaySymbols.joinWithSeparator(","));"
         }
 
-        if let byhour = rule.byhour {
-            let byhourStrings = byhour.map({ (hour) -> String in
-                return String(hour)
-            })
-            if byhourStrings.count > 0 {
-                rruleString += "BYHOUR=\(byhourStrings.joinWithSeparator(","));"
-            }
+        let byhourStrings = rule.byhour.map({ (hour) -> String in
+            return String(hour)
+        })
+        if byhourStrings.count > 0 {
+            rruleString += "BYHOUR=\(byhourStrings.joinWithSeparator(","));"
         }
 
-        if let byminute = rule.byminute {
-            let byminuteStrings = byminute.map({ (minute) -> String in
-                return String(minute)
-            })
-            if byminuteStrings.count > 0 {
-                rruleString += "BYMINUTE=\(byminuteStrings.joinWithSeparator(","));"
-            }
+        let byminuteStrings = rule.byminute.map({ (minute) -> String in
+            return String(minute)
+        })
+        if byminuteStrings.count > 0 {
+            rruleString += "BYMINUTE=\(byminuteStrings.joinWithSeparator(","));"
         }
 
-        if let bysecond = rule.bysecond {
-            let bysecondStrings = bysecond.map({ (second) -> String in
-                return String(second)
-            })
-            if bysecondStrings.count > 0 {
-                rruleString += "BYSECOND=\(bysecondStrings.joinWithSeparator(","));"
-            }
+        let bysecondStrings = rule.bysecond.map({ (second) -> String in
+            return String(second)
+        })
+        if bysecondStrings.count > 0 {
+            rruleString += "BYSECOND=\(bysecondStrings.joinWithSeparator(","));"
         }
 
         if rruleString.substringFromIndex(rruleString.endIndex.advancedBy(-1)) == ";" {

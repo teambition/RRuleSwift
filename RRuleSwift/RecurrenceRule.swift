@@ -39,37 +39,37 @@ public struct RecurrenceRule {
     /// For example, if a bysetpos of -1 is combined with a RecurrenceFrequency.Monthly frequency, and a byweekday of (EKWeekday.Monday, EKWeekday.Tuesday, EKWeekday.Wednesday, EKWeekday.Thursday, EKWeekday.Friday), will result in the last work day of every month.
     ///
     /// Negative values indicate counting backwards from the end of the recurrence rule’s frequency.
-    public var bysetpos: [Int]?
+    public var bysetpos = [Int]()
 
     /// The days of the year associated with the recurrence rule, as an array of integers. Values can be from 1 to 366 and from -1 to -366.
     ///
     /// Negative values indicate counting backwards from the end of the year.
-    public var byyearday: [Int]?
+    public var byyearday = [Int]()
 
     /// The months of the year associated with the recurrence rule, as an array of integers. Values can be from 1 to 12.
-    public var bymonth: [Int]?
+    public var bymonth = [Int]()
 
     /// The weeks of the year associated with the recurrence rule, as an array of integers.  Values can be from 1 to 53 and from -1 to -53. According to ISO8601, the first week of the year is that containing at least four days of the new year.
     ///
     /// Negative values indicate counting backwards from the end of the year.
-    public var byweekno: [Int]?
+    public var byweekno = [Int]()
 
     /// The days of the month associated with the recurrence rule, as an array of integers. Values can be from 1 to 31 and from -1 to -31.
     ///
     /// Negative values indicate counting backwards from the end of the month.
-    public var bymonthday: [Int]?
+    public var bymonthday = [Int]()
 
     /// The days of the week associated with the recurrence rule, as an array of EKWeekday objects.
-    public var byweekday: [EKWeekday]?
+    public var byweekday = [EKWeekday]()
 
     /// The hours of the day associated with the recurrence rule, as an array of integers.
-    public var byhour: [Int]?
+    public var byhour = [Int]()
 
     /// The minutes of the hour associated with the recurrence rule, as an array of integers.
-    public var byminute: [Int]?
+    public var byminute = [Int]()
 
     /// The seconds of the minute associated with the recurrence rule, as an array of integers.
-    public var bysecond: [Int]?
+    public var bysecond = [Int]()
 
     public init(frequency: RecurrenceFrequency) {
         self.frequency = frequency

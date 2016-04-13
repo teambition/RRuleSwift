@@ -68,100 +68,82 @@ internal extension RecurrenceRule {
             jsonString += "count: \(Generator.endlessRecurrenceCount),"
         }
 
-        if let bysetpos = bysetpos {
-            let bysetposStrings = bysetpos.flatMap({ (setpo) -> String? in
-                guard (-366...366 ~= setpo) && (setpo != 0) else {
-                    return nil
-                }
-                return String(setpo)
-            })
-            if bysetposStrings.count > 0 {
-                jsonString += "bysetpos: [\(bysetposStrings.joinWithSeparator(","))],"
+        let bysetposStrings = bysetpos.flatMap({ (setpo) -> String? in
+            guard (-366...366 ~= setpo) && (setpo != 0) else {
+                return nil
             }
+            return String(setpo)
+        })
+        if bysetposStrings.count > 0 {
+            jsonString += "bysetpos: [\(bysetposStrings.joinWithSeparator(","))],"
         }
 
-        if let byyearday = byyearday {
-            let byyeardayStrings = byyearday.flatMap({ (yearday) -> String? in
-                guard (-366...366 ~= yearday) && (yearday != 0) else {
-                    return nil
-                }
-                return String(yearday)
-            })
-            if byyeardayStrings.count > 0 {
-                jsonString += "byyearday: [\(byyeardayStrings.joinWithSeparator(","))],"
+        let byyeardayStrings = byyearday.flatMap({ (yearday) -> String? in
+            guard (-366...366 ~= yearday) && (yearday != 0) else {
+                return nil
             }
+            return String(yearday)
+        })
+        if byyeardayStrings.count > 0 {
+            jsonString += "byyearday: [\(byyeardayStrings.joinWithSeparator(","))],"
         }
 
-        if let bymonth = bymonth {
-            let bymonthStrings = bymonth.flatMap({ (month) -> String? in
-                guard 1...12 ~= month else {
-                    return nil
-                }
-                return String(month)
-            })
-            if bymonthStrings.count > 0 {
-                jsonString += "bymonth: [\(bymonthStrings.joinWithSeparator(","))],"
+        let bymonthStrings = bymonth.flatMap({ (month) -> String? in
+            guard 1...12 ~= month else {
+                return nil
             }
+            return String(month)
+        })
+        if bymonthStrings.count > 0 {
+            jsonString += "bymonth: [\(bymonthStrings.joinWithSeparator(","))],"
         }
 
-        if let byweekno = byweekno {
-            let byweeknoStrings = byweekno.flatMap({ (weekno) -> String? in
-                guard (-53...53 ~= weekno) && (weekno != 0) else {
-                    return nil
-                }
-                return String(weekno)
-            })
-            if byweeknoStrings.count > 0 {
-                jsonString += "byweekno: [\(byweeknoStrings.joinWithSeparator(","))],"
+        let byweeknoStrings = byweekno.flatMap({ (weekno) -> String? in
+            guard (-53...53 ~= weekno) && (weekno != 0) else {
+                return nil
             }
+            return String(weekno)
+        })
+        if byweeknoStrings.count > 0 {
+            jsonString += "byweekno: [\(byweeknoStrings.joinWithSeparator(","))],"
         }
 
-        if let bymonthday = bymonthday {
-            let bymonthdayStrings = bymonthday.flatMap({ (monthday) -> String? in
-                guard (-31...31 ~= monthday) && (monthday != 0) else {
-                    return nil
-                }
-                return String(monthday)
-            })
-            if bymonthdayStrings.count > 0 {
-                jsonString += "bymonthday: [\(bymonthdayStrings.joinWithSeparator(","))],"
+        let bymonthdayStrings = bymonthday.flatMap({ (monthday) -> String? in
+            guard (-31...31 ~= monthday) && (monthday != 0) else {
+                return nil
             }
+            return String(monthday)
+        })
+        if bymonthdayStrings.count > 0 {
+            jsonString += "bymonthday: [\(bymonthdayStrings.joinWithSeparator(","))],"
         }
 
-        if let byweekday = byweekday {
-            let byweekdayJSSymbols = byweekday.map({ (weekday) -> String in
-                return weekday.toJSONSymbol()
-            })
-            if byweekdayJSSymbols.count > 0 {
-                jsonString += "byweekday: [\(byweekdayJSSymbols.joinWithSeparator(","))],"
-            }
+        let byweekdayJSSymbols = byweekday.map({ (weekday) -> String in
+            return weekday.toJSONSymbol()
+        })
+        if byweekdayJSSymbols.count > 0 {
+            jsonString += "byweekday: [\(byweekdayJSSymbols.joinWithSeparator(","))],"
         }
 
-        if let byhour = byhour {
-            let byhourStrings = byhour.map({ (hour) -> String in
-                return String(hour)
-            })
-            if byhourStrings.count > 0 {
-                jsonString += "byhour: [\(byhourStrings.joinWithSeparator(","))],"
-            }
+        let byhourStrings = byhour.map({ (hour) -> String in
+            return String(hour)
+        })
+        if byhourStrings.count > 0 {
+            jsonString += "byhour: [\(byhourStrings.joinWithSeparator(","))],"
         }
 
-        if let byminute = byminute {
-            let byminuteStrings = byminute.map({ (minute) -> String in
-                return String(minute)
-            })
-            if byminuteStrings.count > 0 {
-                jsonString += "byminute: [\(byminuteStrings.joinWithSeparator(","))],"
-            }
+        let byminuteStrings = byminute.map({ (minute) -> String in
+            return String(minute)
+        })
+        if byminuteStrings.count > 0 {
+            jsonString += "byminute: [\(byminuteStrings.joinWithSeparator(","))],"
         }
 
-        if let bysecond = bysecond {
-            let bysecondStrings = bysecond.map({ (second) -> String in
-                return String(second)
-            })
-            if bysecondStrings.count > 0 {
-                jsonString += "bysecond: [\(bysecondStrings.joinWithSeparator(","))]"
-            }
+        let bysecondStrings = bysecond.map({ (second) -> String in
+            return String(second)
+        })
+        if bysecondStrings.count > 0 {
+            jsonString += "bysecond: [\(bysecondStrings.joinWithSeparator(","))]"
         }
 
         if jsonString.substringFromIndex(jsonString.endIndex.advancedBy(-1)) == "," {

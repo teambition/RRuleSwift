@@ -14,7 +14,7 @@ let dateFormatter: NSDateFormatter = {
 
 let ruleString1 = "RRULE:FREQ=WEEKLY;DTSTART=20160328T070000Z;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
 if let rule1 = RecurrenceRule(recurrenceWithRRuleString: ruleString1) {
-    let weekdays = rule1.byweekday!.map({ (weekday) -> Int in
+    let weekdays = rule1.byweekday.map({ (weekday) -> Int in
         return weekday.rawValue
     })
 }
