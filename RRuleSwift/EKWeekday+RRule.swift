@@ -54,5 +54,5 @@ public func <(lhs: EKWeekday, rhs: EKWeekday) -> Bool {
 }
 
 public func ==(lhs: EKWeekday, rhs: EKWeekday) -> Bool {
-    return false
+    return lhs.toNumberSymbol() == rhs.toNumberSymbol()
 }
