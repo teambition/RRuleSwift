@@ -31,6 +31,10 @@ public extension RecurrenceRule {
         }
 
         var occurrences = allOccurrences
+        if let rdates = rdate?.dates {
+            occurrences.appendContentsOf(rdates)
+        }
+
         if let exdates = exdate?.dates, unit = exdate?.unit {
             for occurrence in occurrences {
                 for exdate in exdates {
@@ -43,7 +47,7 @@ public extension RecurrenceRule {
             }
         }
 
-        return occurrences
+        return occurrences.sort { $0.isBeforeOrSameWith($1) }
     }
 
     public func occurrencesBetween(date date: NSDate, andDate otherDate: NSDate) -> [NSDate] {
@@ -68,6 +72,10 @@ public extension RecurrenceRule {
         }
 
         var occurrences = betweenOccurrences
+        if let rdates = rdate?.dates {
+            occurrences.appendContentsOf(rdates)
+        }
+
         if let exdates = exdate?.dates, unit = exdate?.unit {
             for occurrence in occurrences {
                 for exdate in exdates {
@@ -80,6 +88,6 @@ public extension RecurrenceRule {
             }
         }
 
-        return occurrences
+        return occurrences.sort { $0.isBeforeOrSameWith($1) }
     }
 }

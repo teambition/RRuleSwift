@@ -14,6 +14,7 @@
 		D31B13BF1CAA7F1800D0B863 /* Generators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13BE1CAA7F1700D0B863 /* Generators.swift */; };
 		D382675C1CB4BCFB0080C91A /* NSDate+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = D382675B1CB4BCFB0080C91A /* NSDate+Comparison.swift */; };
 		D393D72F1CBF507700B89FB8 /* ExclusionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D393D72E1CBF507700B89FB8 /* ExclusionDate.swift */; };
+		D393D7311CBF79C800B89FB8 /* InclusionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D393D7301CBF79C800B89FB8 /* InclusionDate.swift */; };
 		D3D7E3E51CB3E03F00BF052F /* nlp.js in Resources */ = {isa = PBXBuildFile; fileRef = D3D7E3E31CB3E03F00BF052F /* nlp.js */; };
 		D3D7E3E61CB3E03F00BF052F /* rrule.js in Resources */ = {isa = PBXBuildFile; fileRef = D3D7E3E41CB3E03F00BF052F /* rrule.js */; };
 		D3D7E3E81CB3EBC800BF052F /* JavaScriptBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D7E3E71CB3EBC800BF052F /* JavaScriptBridge.swift */; };
@@ -29,6 +30,7 @@
 		D31B13BE1CAA7F1700D0B863 /* Generators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generators.swift; sourceTree = "<group>"; };
 		D382675B1CB4BCFB0080C91A /* NSDate+Comparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Comparison.swift"; sourceTree = "<group>"; };
 		D393D72E1CBF507700B89FB8 /* ExclusionDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExclusionDate.swift; sourceTree = "<group>"; };
+		D393D7301CBF79C800B89FB8 /* InclusionDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InclusionDate.swift; sourceTree = "<group>"; };
 		D3D7E3E31CB3E03F00BF052F /* nlp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = nlp.js; sourceTree = "<group>"; };
 		D3D7E3E41CB3E03F00BF052F /* rrule.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = rrule.js; sourceTree = "<group>"; };
 		D3D7E3E71CB3EBC800BF052F /* JavaScriptBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JavaScriptBridge.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			children = (
 				D3D7E3E21CB3E03F00BF052F /* lib */,
 				D31B13AD1CA90A9A00D0B863 /* RecurrenceRule.swift */,
+				D393D7301CBF79C800B89FB8 /* InclusionDate.swift */,
 				D393D72E1CBF507700B89FB8 /* ExclusionDate.swift */,
 				D31B13A91CA8F37F00D0B863 /* RRule.swift */,
 				D31B13BE1CAA7F1700D0B863 /* Generators.swift */,
@@ -180,6 +183,7 @@
 				D382675C1CB4BCFB0080C91A /* NSDate+Comparison.swift in Sources */,
 				D31B13AE1CA90A9A00D0B863 /* RecurrenceRule.swift in Sources */,
 				D3D7E3E81CB3EBC800BF052F /* JavaScriptBridge.swift in Sources */,
+				D393D7311CBF79C800B89FB8 /* InclusionDate.swift in Sources */,
 				D31B13B01CA90ED300D0B863 /* RecurrenceFrequency.swift in Sources */,
 				D393D72F1CBF507700B89FB8 /* ExclusionDate.swift in Sources */,
 				D31B13BF1CAA7F1800D0B863 /* Generators.swift in Sources */,

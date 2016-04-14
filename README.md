@@ -31,6 +31,7 @@ recurrenceRule.byweekday = ...
 recurrenceRule.byhour = ...
 recurrenceRule.byminute = ...
 recurrenceRule.bysecond = ...
+recurrenceRule.rdate = ...
 recurrenceRule.exdate = ...
 ```
 
@@ -47,8 +48,20 @@ print(ruleString)
 // RRULE:FREQ=MONTHLY;DTSTART=20160404T021000Z;COUNT=5;INTERVAL=2;WKST=MO;BYDAY=MO,TU
 ```
 
-##### Exclusion date
+##### Inclusion date and Exclusion date
 ```swift
+let rdateString = "RDATE:20180706T160000Z,20210706T160000Z"
+if let inclusionDate = InclusionDate(rdateString: rdateString) {
+    print(inclusionDate.toRDateString())
+    // RDATE:20180706T160000Z,20210706T160000Z
+
+    print(inclusionDate.dates)
+    /*
+    2018-07-07 00:00:00 Sun
+    2021-07-07 00:00:00 Sun
+    */
+}
+
 let exdateString = "EXDATE:20181231T160000Z,20201231T160000Z"
 if let exclusionDate = ExclusionDate(exdateString: exdateString, unitGranularity: .Year) {
     print(exclusionDate.toExDateString())
@@ -67,6 +80,7 @@ if let exclusionDate = ExclusionDate(exdateString: exdateString, unitGranularity
 let ruleString = "RRULE:FREQ=YEARLY;COUNT=11;WKST=MO"
 if let rule = RecurrenceRule(recurrenceWithRRuleString: ruleString) {
     var rule = rule
+    rule.rdate = inclusionDate // RDATE:20180706T160000Z,20210706T160000Z
     rule.exdate = exclusionDate // EXDATE:20181231T160000Z,20201231T160000Z
     let allDates = rule.allOccurrences()
     print(allDates)
@@ -74,6 +88,7 @@ if let rule = RecurrenceRule(recurrenceWithRRuleString: ruleString) {
     2016-04-14 14:22:30 Thu
     2017-04-14 14:22:30 Fri
     2018-04-14 14:22:30 Sat
+    2018-07-07 00:00:00 Sat
     2020-04-14 14:22:30 Tue
     2022-04-14 14:22:30 Thu
     2023-04-14 14:22:30 Fri
@@ -82,12 +97,13 @@ if let rule = RecurrenceRule(recurrenceWithRRuleString: ruleString) {
     2026-04-14 14:22:30 Tue
     */
 
-    let date = dateFormatter.dateFromString("2017-01-01 00:00:00 Sun")
-    let otherDate = dateFormatter.dateFromString("2020-01-01 00:00:00 Wed")
+    let date = dateFormatter.dateFromString("2018-01-01 00:00:00 Sun")
+    let otherDate = dateFormatter.dateFromString("2024-01-01 00:00:00 Mon")
     let betweenDates = rule.occurrencesBetween(date: date!, andDate: otherDate!)
     print(betweenDates)
     /*
     2018-04-14 14:22:30 Sat
+    2018-07-07 00:00:00 Sat
     2020-04-14 14:22:30 Tue
     2022-04-14 14:22:30 Thu
     2023-04-14 14:22:30 Fri

@@ -71,7 +71,10 @@ public struct RecurrenceRule {
     /// The seconds of the minute associated with the recurrence rule, as an array of integers.
     public var bysecond = [Int]()
 
-    /// The exclusion dates of the recurrence rule.
+    /// The inclusive dates of the recurrence rule.
+    public var rdate: InclusionDate?
+
+    /// The exclusion dates of the recurrence rule. The dates of this property will not be generated, even if some inclusive rdate matches the recurrence rule.
     public var exdate: ExclusionDate?
 
     public init(frequency: RecurrenceFrequency) {
