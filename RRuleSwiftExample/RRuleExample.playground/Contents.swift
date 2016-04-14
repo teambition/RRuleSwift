@@ -19,14 +19,27 @@ if let rule1 = RecurrenceRule(recurrenceWithRRuleString: ruleString1) {
     })
 }
 
-let ruleString2 = "RRULE:FREQ=YEARLY;COUNT=5;WKST=MO"
+let exdateString = "EXDATE:20160416T030000Z,20160420T030000Z"
+if let exclusionDate = ExclusionDate(exdateString: exdateString, unitGranularity: .Day) {
+    let exdates = exclusionDate.dates
+}
+
+let exdate1 = dateFormatter.dateFromString("2019-01-01 00:00:00 Sun")!
+let exdate2 = dateFormatter.dateFromString("2021-01-01 00:00:00 Wed")!
+let ruleExclusionDate = ExclusionDate(dates: [exdate1, exdate2], unitGranularity: .Year)
+let ruleExDateString = ruleExclusionDate.toExDateString()
+
+
+let ruleString2 = "RRULE:FREQ=YEARLY;COUNT=11;WKST=MO"
 if let rule2 = RecurrenceRule(recurrenceWithRRuleString: ruleString2) {
+    var rule2 = rule2
+    rule2.exdate = ruleExclusionDate
     let allDates = rule2.allOccurrences().map({ (date) -> String in
         return dateFormatter.stringFromDate(date)
     })
 
-    let date = dateFormatter.dateFromString("2017-01-01 00:00:00 Sun")
-    let otherDate = dateFormatter.dateFromString("2020-01-01 00:00:00 Wed")
+    let date = dateFormatter.dateFromString("2018-01-01 00:00:00 Sun")
+    let otherDate = dateFormatter.dateFromString("2024-01-01 00:00:00 Wed")
     let betweenDates = rule2.occurrencesBetween(date: date!, andDate: otherDate!).map({ (date) -> String in
         return dateFormatter.stringFromDate(date)
     })

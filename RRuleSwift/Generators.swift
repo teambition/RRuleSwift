@@ -29,7 +29,21 @@ public extension RecurrenceRule {
         guard let allOccurrences = context.evaluateScript("rule.all()").toArray() as? [NSDate] else {
             return []
         }
-        return allOccurrences
+
+        var occurrences = allOccurrences
+        if let exdates = exdate?.dates, unit = exdate?.unit {
+            for occurrence in occurrences {
+                for exdate in exdates {
+                    if calendar.isDate(occurrence, equalToDate: exdate, toUnitGranularity: unit) {
+                        let index = occurrences.indexOf(occurrence)!
+                        occurrences.removeAtIndex(index)
+                        break
+                    }
+                }
+            }
+        }
+
+        return occurrences
     }
 
     public func occurrencesBetween(date date: NSDate, andDate otherDate: NSDate) -> [NSDate] {
@@ -49,9 +63,23 @@ public extension RecurrenceRule {
         }
         context.evaluateScript(rrulejs)
         context.evaluateScript("var rule = new RRule({ \(ruleJSONString) })")
-        guard let occurrences = context.evaluateScript("rule.between(new Date('\(beginDateJSON)'), new Date('\(untilDateJSON)'))").toArray() as? [NSDate] else {
+        guard let betweenOccurrences = context.evaluateScript("rule.between(new Date('\(beginDateJSON)'), new Date('\(untilDateJSON)'))").toArray() as? [NSDate] else {
             return []
         }
+
+        var occurrences = betweenOccurrences
+        if let exdates = exdate?.dates, unit = exdate?.unit {
+            for occurrence in occurrences {
+                for exdate in exdates {
+                    if calendar.isDate(occurrence, equalToDate: exdate, toUnitGranularity: unit) {
+                        let index = occurrences.indexOf(occurrence)!
+                        occurrences.removeAtIndex(index)
+                        break
+                    }
+                }
+            }
+        }
+
         return occurrences
     }
 }

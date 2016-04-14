@@ -71,6 +71,9 @@ public struct RecurrenceRule {
     /// The seconds of the minute associated with the recurrence rule, as an array of integers.
     public var bysecond = [Int]()
 
+    /// The exclusion dates of the recurrence rule.
+    public var exdate: ExclusionDate?
+
     public init(frequency: RecurrenceFrequency) {
         self.frequency = frequency
     }
