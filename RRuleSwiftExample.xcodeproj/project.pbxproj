@@ -41,7 +41,6 @@
 		D31B13B41CA9571900D0B863 /* RRuleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = RRuleSwift.framework; path = "/Users/hongxin/Library/Developer/Xcode/DerivedData/RRuleSwift-bsfdvctfhfasceecxzjeffpridns/Build/Products/Debug-iphonesimulator/RRuleSwift.framework"; sourceTree = "<absolute>"; };
 		D31B13BA1CAA35E200D0B863 /* PickerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewCell.swift; sourceTree = "<group>"; };
 		D31B13BC1CAA3B0D00D0B863 /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
-		D3D7E3DE1CB3A6D700BF052F /* RRuleExample.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = RRuleExample.playground; path = RRuleSwiftExample/RRuleExample.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +60,6 @@
 			children = (
 				D31B13B41CA9571900D0B863 /* RRuleSwift.framework */,
 				D31B137A1CA8D8E400D0B863 /* RRuleSwiftExample */,
-				D3D7E3DF1CB3A6EF00BF052F /* Playground */,
 				D31B13791CA8D8E400D0B863 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,14 +84,6 @@
 				D31B13871CA8D8E400D0B863 /* Info.plist */,
 			);
 			path = RRuleSwiftExample;
-			sourceTree = "<group>";
-		};
-		D3D7E3DF1CB3A6EF00BF052F /* Playground */ = {
-			isa = PBXGroup;
-			children = (
-				D3D7E3DE1CB3A6D700BF052F /* RRuleExample.playground */,
-			);
-			name = Playground;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
