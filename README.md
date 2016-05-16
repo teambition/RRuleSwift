@@ -5,6 +5,8 @@ Swift rrule library for working with recurrence rules of calendar dates.
 
 RRuleSwift is based on [rrule.js](https://github.com/jkbrzt/rrule).
 
+*Note: Before running the example project, you will need to build the framework for 'Generic iOS Device' first.*
+
 ##How To Get Started
 ###Carthage
 Specify "RRuleSwift" in your ```Cartfile```:
