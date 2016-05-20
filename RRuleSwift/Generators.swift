@@ -14,12 +14,12 @@ internal struct Generator {
 }
 
 public extension RecurrenceRule {
-    public func allOccurrences() -> [NSDate] {
+    public func allOccurrences(endlessRecurrenceCount: Int = Generator.endlessRecurrenceCount) -> [NSDate] {
         guard let rrulejs = JavaScriptBridge.rrulejs() else {
             return []
         }
 
-        let ruleJSONString = toJSONString()
+        let ruleJSONString = toJSONString(endlessRecurrenceCount: endlessRecurrenceCount)
         let context = JSContext()
         context.exceptionHandler = { context, exception in
             print("[RRuleSwift] rrule.js error: \(exception)")
@@ -50,7 +50,7 @@ public extension RecurrenceRule {
         return occurrences.sort { $0.isBeforeOrSameWith($1) }
     }
 
-    public func occurrencesBetween(date date: NSDate, andDate otherDate: NSDate) -> [NSDate] {
+    public func occurrencesBetween(date date: NSDate, andDate otherDate: NSDate, endlessRecurrenceCount: Int = Generator.endlessRecurrenceCount) -> [NSDate] {
         guard let rrulejs = JavaScriptBridge.rrulejs() else {
             return []
         }
@@ -60,7 +60,7 @@ public extension RecurrenceRule {
         let beginDateJSON = RRule.ISO8601DateFormatter.stringFromDate(beginDate)
         let untilDateJSON = RRule.ISO8601DateFormatter.stringFromDate(untilDate)
 
-        let ruleJSONString = toJSONString()
+        let ruleJSONString = toJSONString(endlessRecurrenceCount: endlessRecurrenceCount)
         let context = JSContext()
         context.exceptionHandler = { context, exception in
             print("[RRuleSwift] rrule.js error: \(exception)")
