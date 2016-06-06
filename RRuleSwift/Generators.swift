@@ -11,22 +11,28 @@ import JavaScriptCore
 
 internal struct Generator {
     static let endlessRecurrenceCount = 500
-}
-
-public extension RecurrenceRule {
-    public func allOccurrences(endlessRecurrenceCount: Int = Generator.endlessRecurrenceCount) -> [NSDate] {
+    static let rruleContext: JSContext? = {
         guard let rrulejs = JavaScriptBridge.rrulejs() else {
-            return []
+            return nil
         }
-
-        let ruleJSONString = toJSONString(endlessRecurrenceCount: endlessRecurrenceCount)
         let context = JSContext()
         context.exceptionHandler = { context, exception in
             print("[RRuleSwift] rrule.js error: \(exception)")
         }
         context.evaluateScript(rrulejs)
-        context.evaluateScript("var rule = new RRule({ \(ruleJSONString) })")
-        guard let allOccurrences = context.evaluateScript("rule.all()").toArray() as? [NSDate] else {
+        return context
+    }()
+}
+
+public extension RecurrenceRule {
+    public func allOccurrences(endlessRecurrenceCount: Int = Generator.endlessRecurrenceCount) -> [NSDate] {
+        guard let _ = JavaScriptBridge.rrulejs() else {
+            return []
+        }
+
+        let ruleJSONString = toJSONString(endlessRecurrenceCount: endlessRecurrenceCount)
+        Generator.rruleContext?.evaluateScript("var rule = new RRule({ \(ruleJSONString) })")
+        guard let allOccurrences = Generator.rruleContext?.evaluateScript("rule.all()").toArray() as? [NSDate] else {
             return []
         }
 
@@ -51,7 +57,7 @@ public extension RecurrenceRule {
     }
 
     public func occurrencesBetween(date date: NSDate, andDate otherDate: NSDate, endlessRecurrenceCount: Int = Generator.endlessRecurrenceCount) -> [NSDate] {
-        guard let rrulejs = JavaScriptBridge.rrulejs() else {
+        guard let _ = JavaScriptBridge.rrulejs() else {
             return []
         }
 
@@ -61,13 +67,8 @@ public extension RecurrenceRule {
         let untilDateJSON = RRule.ISO8601DateFormatter.stringFromDate(untilDate)
 
         let ruleJSONString = toJSONString(endlessRecurrenceCount: endlessRecurrenceCount)
-        let context = JSContext()
-        context.exceptionHandler = { context, exception in
-            print("[RRuleSwift] rrule.js error: \(exception)")
-        }
-        context.evaluateScript(rrulejs)
-        context.evaluateScript("var rule = new RRule({ \(ruleJSONString) })")
-        guard let betweenOccurrences = context.evaluateScript("rule.between(new Date('\(beginDateJSON)'), new Date('\(untilDateJSON)'))").toArray() as? [NSDate] else {
+        Generator.rruleContext?.evaluateScript("var rule = new RRule({ \(ruleJSONString) })")
+        guard let betweenOccurrences = Generator.rruleContext?.evaluateScript("rule.between(new Date('\(beginDateJSON)'), new Date('\(untilDateJSON)'))").toArray() as? [NSDate] else {
             return []
         }
 

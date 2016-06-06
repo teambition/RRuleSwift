@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>RRuleSwiftExample-TodayExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>RRuleSwiftExample.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +18,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>D31B13771CA8D8E400D0B863</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D325D6451D0574E00021E620</key>
 		<dict>
 			<key>primary</key>
 			<true/>

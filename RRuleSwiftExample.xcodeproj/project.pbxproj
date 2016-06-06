@@ -11,22 +11,48 @@
 		D31B13811CA8D8E400D0B863 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D31B137F1CA8D8E400D0B863 /* Main.storyboard */; };
 		D31B13831CA8D8E400D0B863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D31B13821CA8D8E400D0B863 /* Assets.xcassets */; };
 		D31B13A81CA8E29000D0B863 /* RRuleExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13A71CA8E29000D0B863 /* RRuleExampleViewController.swift */; };
-		D31B13B51CA9571900D0B863 /* RRuleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31B13B41CA9571900D0B863 /* RRuleSwift.framework */; };
-		D31B13B61CA9571900D0B863 /* RRuleSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D31B13B41CA9571900D0B863 /* RRuleSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D31B13BB1CAA35E200D0B863 /* PickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13BA1CAA35E200D0B863 /* PickerViewCell.swift */; };
 		D31B13BD1CAA3B0D00D0B863 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B13BC1CAA3B0D00D0B863 /* DatePickerCell.swift */; };
+		D325D62D1D05737F0021E620 /* RRuleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D325D62C1D05737F0021E620 /* RRuleSwift.framework */; };
+		D325D62E1D05737F0021E620 /* RRuleSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D325D62C1D05737F0021E620 /* RRuleSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D325D6491D0574E00021E620 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D325D6481D0574E00021E620 /* NotificationCenter.framework */; };
+		D325D64C1D0574E00021E620 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D64B1D0574E00021E620 /* TodayViewController.swift */; };
+		D325D64F1D0574E00021E620 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D325D64D1D0574E00021E620 /* MainInterface.storyboard */; };
+		D325D6531D0574E00021E620 /* RRuleSwiftExample-TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D325D6461D0574E00021E620 /* RRuleSwiftExample-TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D325D6591D0575E40021E620 /* RRuleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D325D62C1D05737F0021E620 /* RRuleSwift.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D325D6511D0574E00021E620 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D31B13701CA8D8E400D0B863 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D325D6451D0574E00021E620;
+			remoteInfo = "RRuleSwiftExample-TodayExtension";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		D31B13B71CA9571900D0B863 /* Embed Frameworks */ = {
+		D325D62F1D05737F0021E620 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D31B13B61CA9571900D0B863 /* RRuleSwift.framework in Embed Frameworks */,
+				D325D62E1D05737F0021E620 /* RRuleSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D325D6571D0574E10021E620 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D325D6531D0574E00021E620 /* RRuleSwiftExample-TodayExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -38,9 +64,14 @@
 		D31B13821CA8D8E400D0B863 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D31B13871CA8D8E400D0B863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D31B13A71CA8E29000D0B863 /* RRuleExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRuleExampleViewController.swift; sourceTree = "<group>"; };
-		D31B13B41CA9571900D0B863 /* RRuleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = RRuleSwift.framework; path = "/Users/hongxin/Library/Developer/Xcode/DerivedData/RRuleSwift-bsfdvctfhfasceecxzjeffpridns/Build/Products/Debug-iphonesimulator/RRuleSwift.framework"; sourceTree = "<absolute>"; };
 		D31B13BA1CAA35E200D0B863 /* PickerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewCell.swift; sourceTree = "<group>"; };
 		D31B13BC1CAA3B0D00D0B863 /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		D325D62C1D05737F0021E620 /* RRuleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = RRuleSwift.framework; path = "/Users/hongxin/Library/Developer/Xcode/DerivedData/RRuleSwift-bsfdvctfhfasceecxzjeffpridns/Build/Products/Debug-iphoneos/RRuleSwift.framework"; sourceTree = "<absolute>"; };
+		D325D6461D0574E00021E620 /* RRuleSwiftExample-TodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "RRuleSwiftExample-TodayExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D325D6481D0574E00021E620 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		D325D64B1D0574E00021E620 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		D325D64E1D0574E00021E620 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		D325D6501D0574E00021E620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +79,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D31B13B51CA9571900D0B863 /* RRuleSwift.framework in Frameworks */,
+				D325D62D1D05737F0021E620 /* RRuleSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D325D6431D0574E00021E620 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D325D6491D0574E00021E620 /* NotificationCenter.framework in Frameworks */,
+				D325D6591D0575E40021E620 /* RRuleSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,8 +98,10 @@
 		D31B136F1CA8D8E400D0B863 = {
 			isa = PBXGroup;
 			children = (
-				D31B13B41CA9571900D0B863 /* RRuleSwift.framework */,
+				D325D62C1D05737F0021E620 /* RRuleSwift.framework */,
 				D31B137A1CA8D8E400D0B863 /* RRuleSwiftExample */,
+				D325D64A1D0574E00021E620 /* RRuleSwiftExample-TodayExtension */,
+				D325D6471D0574E00021E620 /* Frameworks */,
 				D31B13791CA8D8E400D0B863 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				D31B13781CA8D8E400D0B863 /* RRuleSwiftExample.app */,
+				D325D6461D0574E00021E620 /* RRuleSwiftExample-TodayExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +129,24 @@
 			path = RRuleSwiftExample;
 			sourceTree = "<group>";
 		};
+		D325D6471D0574E00021E620 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D325D6481D0574E00021E620 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D325D64A1D0574E00021E620 /* RRuleSwiftExample-TodayExtension */ = {
+			isa = PBXGroup;
+			children = (
+				D325D64B1D0574E00021E620 /* TodayViewController.swift */,
+				D325D64D1D0574E00021E620 /* MainInterface.storyboard */,
+				D325D6501D0574E00021E620 /* Info.plist */,
+			);
+			path = "RRuleSwiftExample-TodayExtension";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,16 +157,35 @@
 				D31B13741CA8D8E400D0B863 /* Sources */,
 				D31B13751CA8D8E400D0B863 /* Frameworks */,
 				D31B13761CA8D8E400D0B863 /* Resources */,
-				D31B13B71CA9571900D0B863 /* Embed Frameworks */,
+				D325D62F1D05737F0021E620 /* Embed Frameworks */,
+				D325D6571D0574E10021E620 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D325D6521D0574E00021E620 /* PBXTargetDependency */,
 			);
 			name = RRuleSwiftExample;
 			productName = RRuleSwift;
 			productReference = D31B13781CA8D8E400D0B863 /* RRuleSwiftExample.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D325D6451D0574E00021E620 /* RRuleSwiftExample-TodayExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D325D6541D0574E10021E620 /* Build configuration list for PBXNativeTarget "RRuleSwiftExample-TodayExtension" */;
+			buildPhases = (
+				D325D6421D0574E00021E620 /* Sources */,
+				D325D6431D0574E00021E620 /* Frameworks */,
+				D325D6441D0574E00021E620 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RRuleSwiftExample-TodayExtension";
+			productName = "RRuleSwiftExample-TodayExtension";
+			productReference = D325D6461D0574E00021E620 /* RRuleSwiftExample-TodayExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -119,6 +199,9 @@
 				TargetAttributes = {
 					D31B13771CA8D8E400D0B863 = {
 						CreatedOnToolsVersion = 7.3;
+					};
+					D325D6451D0574E00021E620 = {
+						CreatedOnToolsVersion = 7.3.1;
 					};
 				};
 			};
@@ -136,6 +219,7 @@
 			projectRoot = "";
 			targets = (
 				D31B13771CA8D8E400D0B863 /* RRuleSwiftExample */,
+				D325D6451D0574E00021E620 /* RRuleSwiftExample-TodayExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -147,6 +231,14 @@
 			files = (
 				D31B13831CA8D8E400D0B863 /* Assets.xcassets in Resources */,
 				D31B13811CA8D8E400D0B863 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D325D6441D0574E00021E620 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D325D64F1D0574E00021E620 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +256,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D325D6421D0574E00021E620 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D325D64C1D0574E00021E620 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D325D6521D0574E00021E620 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D325D6451D0574E00021E620 /* RRuleSwiftExample-TodayExtension */;
+			targetProxy = D325D6511D0574E00021E620 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D31B137F1CA8D8E400D0B863 /* Main.storyboard */ = {
@@ -173,6 +281,14 @@
 				D31B13801CA8D8E400D0B863 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D325D64D1D0574E00021E620 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D325D64E1D0574E00021E620 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -267,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/RRuleSwiftExample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwiftExample;
@@ -278,10 +395,35 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/RRuleSwiftExample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwiftExample;
 				PRODUCT_NAME = RRuleSwiftExample;
+			};
+			name = Release;
+		};
+		D325D6551D0574E10021E620 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "RRuleSwiftExample-TodayExtension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Teambition.RRuleSwiftExample.RRuleSwiftExample-TodayExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D325D6561D0574E10021E620 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "RRuleSwiftExample-TodayExtension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Teambition.RRuleSwiftExample.RRuleSwiftExample-TodayExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -302,6 +444,15 @@
 			buildConfigurations = (
 				D31B138B1CA8D8E400D0B863 /* Debug */,
 				D31B138C1CA8D8E400D0B863 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D325D6541D0574E10021E620 /* Build configuration list for PBXNativeTarget "RRuleSwiftExample-TodayExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D325D6551D0574E10021E620 /* Debug */,
+				D325D6561D0574E10021E620 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
