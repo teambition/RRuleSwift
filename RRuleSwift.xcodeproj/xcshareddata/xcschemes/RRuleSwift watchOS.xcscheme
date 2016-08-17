@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D31B13961CA8E02E00D0B863"
+               BlueprintIdentifier = "EB48D1361D641AD6001EE872"
                BuildableName = "RRuleSwift.framework"
-               BlueprintName = "RRuleSwift-iOS"
+               BlueprintName = "RRuleSwift-watchOS"
                ReferencedContainer = "container:RRuleSwift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D31B13961CA8E02E00D0B863"
+            BlueprintIdentifier = "EB48D1361D641AD6001EE872"
             BuildableName = "RRuleSwift.framework"
-            BlueprintName = "RRuleSwift-iOS"
+            BlueprintName = "RRuleSwift-watchOS"
             ReferencedContainer = "container:RRuleSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D31B13961CA8E02E00D0B863"
+            BlueprintIdentifier = "EB48D1361D641AD6001EE872"
             BuildableName = "RRuleSwift.framework"
-            BlueprintName = "RRuleSwift-iOS"
+            BlueprintName = "RRuleSwift-watchOS"
             ReferencedContainer = "container:RRuleSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
