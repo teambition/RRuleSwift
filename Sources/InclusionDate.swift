@@ -19,7 +19,7 @@ public struct InclusionDate {
     public init?(rdateString string: String) {
         let string = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         guard let range = string.rangeOfString("RDATE:") where range.startIndex == string.startIndex else {
-            print("error: invalid rdate string, must be started with 'RDATE:'")
+//            print("error: invalid rdate string, must be started with 'RDATE:'")
             return nil
         }
         let rdateString = string.substringFromIndex(range.endIndex)

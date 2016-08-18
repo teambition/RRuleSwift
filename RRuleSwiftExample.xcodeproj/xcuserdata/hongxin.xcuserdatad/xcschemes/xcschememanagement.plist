@@ -7,12 +7,22 @@
 		<key>RRuleSwiftExample-TodayExtension.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
+		</dict>
+		<key>RRuleSwiftExample-Watch (Notification).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>RRuleSwiftExample-Watch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>RRuleSwiftExample.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -23,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>D325D6451D0574E00021E620</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB48D17E1D64202E001EE872</key>
 		<dict>
 			<key>primary</key>
 			<true/>

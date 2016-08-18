@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>RRuleSwift iOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>RRuleSwift watchOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>RRuleSwift.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +23,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>D31B13961CA8E02E00D0B863</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB48D1361D641AD6001EE872</key>
 		<dict>
 			<key>primary</key>
 			<true/>

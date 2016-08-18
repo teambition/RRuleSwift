@@ -22,7 +22,7 @@ public struct ExclusionDate {
     public init?(exdateString string: String, unitGranularity unit: NSCalendarUnit) {
         let string = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         guard let range = string.rangeOfString("EXDATE:") where range.startIndex == string.startIndex else {
-            print("error: invalid exdate string, must be started with 'EXDATE:'")
+//            print("error: invalid exdate string, must be started with 'EXDATE:'")
             return nil
         }
         let exdateString = string.substringFromIndex(range.endIndex)

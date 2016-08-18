@@ -15,11 +15,8 @@
 		EB48D1671D641D45001EE872 /* InclusionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1541D641D45001EE872 /* InclusionDate.swift */; };
 		EB48D1681D641D45001EE872 /* InclusionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1541D641D45001EE872 /* InclusionDate.swift */; };
 		EB48D1691D641D45001EE872 /* JavaScriptBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1551D641D45001EE872 /* JavaScriptBridge.swift */; };
-		EB48D16A1D641D45001EE872 /* JavaScriptBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1551D641D45001EE872 /* JavaScriptBridge.swift */; };
 		EB48D16B1D641D45001EE872 /* nlp.js in Resources */ = {isa = PBXBuildFile; fileRef = EB48D1571D641D45001EE872 /* nlp.js */; };
-		EB48D16C1D641D45001EE872 /* nlp.js in Resources */ = {isa = PBXBuildFile; fileRef = EB48D1571D641D45001EE872 /* nlp.js */; };
 		EB48D16D1D641D45001EE872 /* rrule.js in Resources */ = {isa = PBXBuildFile; fileRef = EB48D1581D641D45001EE872 /* rrule.js */; };
-		EB48D16E1D641D45001EE872 /* rrule.js in Resources */ = {isa = PBXBuildFile; fileRef = EB48D1581D641D45001EE872 /* rrule.js */; };
 		EB48D16F1D641D45001EE872 /* NSDate+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1591D641D45001EE872 /* NSDate+Comparison.swift */; };
 		EB48D1701D641D45001EE872 /* NSDate+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1591D641D45001EE872 /* NSDate+Comparison.swift */; };
 		EB48D1711D641D45001EE872 /* RecurrenceFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D15A1D641D45001EE872 /* RecurrenceFrequency.swift */; };
@@ -89,16 +86,16 @@
 		EB48D1311D641ABB001EE872 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */,
-				EB48D1521D641D45001EE872 /* ExclusionDate.swift */,
-				EB48D1531D641D45001EE872 /* Generators.swift */,
-				EB48D1541D641D45001EE872 /* InclusionDate.swift */,
-				EB48D1551D641D45001EE872 /* JavaScriptBridge.swift */,
-				EB48D1561D641D45001EE872 /* lib */,
-				EB48D1591D641D45001EE872 /* NSDate+Comparison.swift */,
-				EB48D15A1D641D45001EE872 /* RecurrenceFrequency.swift */,
 				EB48D15B1D641D45001EE872 /* RecurrenceRule.swift */,
+				EB48D15A1D641D45001EE872 /* RecurrenceFrequency.swift */,
 				EB48D15C1D641D45001EE872 /* RRule.swift */,
+				EB48D1521D641D45001EE872 /* ExclusionDate.swift */,
+				EB48D1541D641D45001EE872 /* InclusionDate.swift */,
+				EB48D1531D641D45001EE872 /* Generators.swift */,
+				EB48D1551D641D45001EE872 /* JavaScriptBridge.swift */,
+				EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */,
+				EB48D1591D641D45001EE872 /* NSDate+Comparison.swift */,
+				EB48D1561D641D45001EE872 /* lib */,
 				EB48D15D1D641D45001EE872 /* Supporting Files */,
 			);
 			path = Sources;
@@ -107,8 +104,8 @@
 		EB48D1561D641D45001EE872 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				EB48D1571D641D45001EE872 /* nlp.js */,
 				EB48D1581D641D45001EE872 /* rrule.js */,
+				EB48D1571D641D45001EE872 /* nlp.js */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -230,8 +227,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB48D16E1D641D45001EE872 /* rrule.js in Resources */,
-				EB48D16C1D641D45001EE872 /* nlp.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +258,6 @@
 				EB48D1721D641D45001EE872 /* RecurrenceFrequency.swift in Sources */,
 				EB48D1621D641D45001EE872 /* EKWeekday+RRule.swift in Sources */,
 				EB48D1741D641D45001EE872 /* RecurrenceRule.swift in Sources */,
-				EB48D16A1D641D45001EE872 /* JavaScriptBridge.swift in Sources */,
 				EB48D1701D641D45001EE872 /* NSDate+Comparison.swift in Sources */,
 				EB48D1761D641D45001EE872 /* RRule.swift in Sources */,
 			);

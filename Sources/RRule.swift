@@ -27,7 +27,7 @@ public struct RRule {
     public static func ruleFromString(string: String) -> RecurrenceRule? {
         let string = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         guard let range = string.rangeOfString("RRULE:") where range.startIndex == string.startIndex else {
-            print("error: invalid rule string, must be started with 'RRULE:'")
+//            print("error: invalid rule string, must be started with 'RRULE:'")
             return nil
         }
         let ruleString = string.substringFromIndex(range.endIndex)
