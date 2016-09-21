@@ -12,22 +12,22 @@ import RRuleSwift
 
 private let kFrequencies = ["Yearly", "Monthly", "Weekly", "Daily", "Hourly", "Minutely", "Secondly"]
 private let kFrequencyStrings = ["YEARLY", "MONTHLY", "WEEKLY", "DAILY", "HOURLY", "MINUTELY", "SECONDLY"]
-private let kFrequenciesDic: [String: RecurrenceFrequency] = ["Yearly": .Yearly, "Monthly": .Monthly, "Weekly": .Weekly, "Daily": .Daily, "Hourly": .Hourly, "Minutely": .Minutely, "Secondly": .Secondly]
+private let kFrequenciesDic: [String: RecurrenceFrequency] = ["Yearly": .yearly, "Monthly": .monthly, "Weekly": .weekly, "Daily": .daily, "Hourly": .hourly, "Minutely": .minutely, "Secondly": .secondly]
 private let kWeekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-private let kWeekdaysDic: [String: EKWeekday] = ["Monday": .Monday, "Tuesday": .Tuesday, "Wednesday": .Wednesday, "Thursday": .Thursday, "Friday": .Friday, "Saturday": .Saturday, "Sunday": .Sunday]
-private let kEKWeekdays: [EKWeekday] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
+private let kWeekdaysDic: [String: EKWeekday] = ["Monday": .monday, "Tuesday": .tuesday, "Wednesday": .wednesday, "Thursday": .thursday, "Friday": .friday, "Saturday": .saturday, "Sunday": .sunday]
+private let kEKWeekdays: [EKWeekday] = [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday]
 private let kMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 extension RecurrenceFrequency {
     func toString() -> String {
         switch self {
-        case .Secondly: return "SECONDLY"
-        case .Minutely: return "MINUTELY"
-        case .Hourly: return "HOURLY"
-        case .Daily: return "DAILY"
-        case .Weekly: return "WEEKLY"
-        case .Monthly: return "MONTHLY"
-        case .Yearly: return "YEARLY"
+        case .secondly: return "SECONDLY"
+        case .minutely: return "MINUTELY"
+        case .hourly: return "HOURLY"
+        case .daily: return "DAILY"
+        case .weekly: return "WEEKLY"
+        case .monthly: return "MONTHLY"
+        case .yearly: return "YEARLY"
         }
     }
 }
@@ -35,13 +35,13 @@ extension RecurrenceFrequency {
 extension EKWeekday {
     func toNumberSymbol() -> Int {
         switch self {
-        case .Monday: return 0
-        case .Tuesday: return 1
-        case .Wednesday: return 2
-        case .Thursday: return 3
-        case .Friday: return 4
-        case .Saturday: return 5
-        case .Sunday: return 6
+        case .monday: return 0
+        case .tuesday: return 1
+        case .wednesday: return 2
+        case .thursday: return 3
+        case .friday: return 4
+        case .saturday: return 5
+        case .sunday: return 6
         }
     }
 }
@@ -50,7 +50,7 @@ class RRuleExampleViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var tableView: UITableView!
 
-    private var rule = RecurrenceRule(frequency: .Daily) {
+    fileprivate var rule = RecurrenceRule(frequency: .daily) {
         didSet {
             textView.text = rule.toRRuleString()
             tableView.reloadData()
@@ -60,29 +60,53 @@ class RRuleExampleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        testRRuleIterator()
     }
 
-    private func setupUI() {
+    fileprivate func setupUI() {
         automaticallyAdjustsScrollViewInsets = false
         navigationItem.title = "RRuleSwift Example"
         tableView.tableFooterView = UIView()
-        tableView.separatorStyle = .None
-        rule = RecurrenceRule(frequency: .Daily)
+        tableView.separatorStyle = .none
+        rule = RecurrenceRule(frequency: .daily)
         textView.delegate = self
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .Plain, target: self, action: #selector(resetButtonTapped(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(resetButtonTapped(_:)))
     }
 
-    func resetButtonTapped(sender: UIBarButtonItem) {
-        rule = RecurrenceRule(frequency: .Daily)
+    fileprivate func testRRuleIterator() {
+        let dateFormatter: DateFormatter = {
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeZone = TimeZone.current
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss EEE"
+            return dateFormatter
+        }()
+
+        var rule = RecurrenceRule(rruleString: "RRULE:FREQ=WEEKLY;DTSTART=20151119T014500Z;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR;UNTIL=20170101T014500Z")!
+        rule.exdate = ExclusionDate(exdateString: "EXDATE:20151120T014500Z,20151123T014500Z,20151126T014500Z,20151127T014500Z,20151130T014500Z,20151201T014500Z,20151202T014500Z,20151203T014500Z,20151207T014500Z,20151210T014500Z,20151211T014500Z,20151215T014500Z,20151216T014500Z,20151217T014500Z,20151221T014500Z,20151222T014500Z,20151223T014500Z,20151228T014500Z,20151229T014500Z", granularity: .day)
+        let date =  dateFormatter.date(from: "2015-11-01 00:00:00 Sun")!
+        let otherDate =  dateFormatter.date(from: "2016-02-01 00:00:00 Sun")!
+
+        let occurrences = rule.occurrences(between: date, and: otherDate)
+
+        print("\nRRule Occurrences:")
+        occurrences.forEach { (occurrence) in
+            print(dateFormatter.string(from: occurrence))
+        }
+        print("\n")
+    }
+
+    func resetButtonTapped(_ sender: UIBarButtonItem) {
+        rule = RecurrenceRule(frequency: .daily)
     }
 }
 
 extension RRuleExampleViewController: UITableViewDataSource, UITableViewDelegate {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 9
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return 1
         case 1: return 1
@@ -97,7 +121,7 @@ extension RRuleExampleViewController: UITableViewDataSource, UITableViewDelegate
         }
     }
 
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0: return "Frequency"
         case 1: return "Interval"
@@ -112,7 +136,7 @@ extension RRuleExampleViewController: UITableViewDataSource, UITableViewDelegate
         }
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch (indexPath.section, indexPath.row) {
         case (0, _): return kPickerViewCellHeight
         case (1, _): return kPickerViewCellHeight
@@ -124,41 +148,41 @@ extension RRuleExampleViewController: UITableViewDataSource, UITableViewDelegate
         }
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch (indexPath.section, indexPath.row) {
         case (0, _):
-            let cell = tableView.dequeueReusableCellWithIdentifier(kPickerViewCellID, forIndexPath: indexPath) as! PickerViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: kPickerViewCellID, for: indexPath) as! PickerViewCell
             cell.pickerView.tag = indexPath.section
             cell.pickerView.dataSource = self
             cell.pickerView.delegate = self
-            cell.pickerView.selectRow(kFrequencyStrings.indexOf(rule.frequency.toString()) ?? 0, inComponent: 0, animated: true)
+            cell.pickerView.selectRow(kFrequencyStrings.index(of: rule.frequency.toString()) ?? 0, inComponent: 0, animated: true)
             return cell
         case (1, _):
-            let cell = tableView.dequeueReusableCellWithIdentifier(kPickerViewCellID, forIndexPath: indexPath) as! PickerViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: kPickerViewCellID, for: indexPath) as! PickerViewCell
             cell.pickerView.tag = indexPath.section
             cell.pickerView.dataSource = self
             cell.pickerView.delegate = self
             cell.pickerView.selectRow(rule.interval - 1, inComponent: 0, animated: true)
             return cell
         case (2, _):
-            let cell = tableView.dequeueReusableCellWithIdentifier(kPickerViewCellID, forIndexPath: indexPath) as! PickerViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: kPickerViewCellID, for: indexPath) as! PickerViewCell
             cell.pickerView.tag = indexPath.section
             cell.pickerView.dataSource = self
             cell.pickerView.delegate = self
             cell.pickerView.selectRow(rule.firstDayOfWeek.toNumberSymbol(), inComponent: 0, animated: true)
             return cell
         case (3, _):
-            let cell = tableView.dequeueReusableCellWithIdentifier(kDatePickerCellID, forIndexPath: indexPath) as! DatePickerCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: kDatePickerCellID, for: indexPath) as! DatePickerCell
             cell.datePicker.date = rule.startDate
-            cell.datePicker.addTarget(self, action: #selector(startDateDidChange(_:)), forControlEvents: .ValueChanged)
+            cell.datePicker.addTarget(self, action: #selector(startDateDidChange(_:)), for: .valueChanged)
             return cell
         case (4, _):
-            let cell = tableView.dequeueReusableCellWithIdentifier(kDatePickerCellID, forIndexPath: indexPath) as! DatePickerCell
-            cell.datePicker.date = rule.recurrenceEnd?.endDate ?? NSDate()
-            cell.datePicker.addTarget(self, action: #selector(endDateDidChange(_:)), forControlEvents: .ValueChanged)
+            let cell = tableView.dequeueReusableCell(withIdentifier: kDatePickerCellID, for: indexPath) as! DatePickerCell
+            cell.datePicker.date = rule.recurrenceEnd?.endDate ?? Date()
+            cell.datePicker.addTarget(self, action: #selector(endDateDidChange(_:)), for: .valueChanged)
             return cell
         case (5, _):
-            let cell = tableView.dequeueReusableCellWithIdentifier(kPickerViewCellID, forIndexPath: indexPath) as! PickerViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: kPickerViewCellID, for: indexPath) as! PickerViewCell
             cell.pickerView.tag = indexPath.section
             cell.pickerView.dataSource = self
             cell.pickerView.delegate = self
@@ -169,128 +193,122 @@ extension RRuleExampleViewController: UITableViewDataSource, UITableViewDelegate
             }
             return cell
         case (6, _):
-            var cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+            var cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
             if cell == nil {
-                cell = UITableViewCell(style: .Default, reuseIdentifier: "Cell")
+                cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
             }
-            cell?.selectionStyle = .None
-            cell?.textLabel?.font = UIFont.systemFontOfSize(15)
+            cell?.selectionStyle = .none
+            cell?.textLabel?.font = UIFont.systemFont(ofSize: 15)
             cell?.textLabel?.text = kWeekdays[indexPath.row]
-            let byweekday = rule.byweekday ?? []
-            let weekdays = byweekday.map({ (weekday) -> NSIndexPath in
-                return NSIndexPath(forRow: weekday.toNumberSymbol(), inSection: 6)
+            let weekdays = rule.byweekday.map({ (weekday) -> IndexPath in
+                return IndexPath(row: weekday.toNumberSymbol(), section: 6)
             })
             if weekdays.contains(indexPath) {
-                cell?.accessoryType = .Checkmark
+                cell?.accessoryType = .checkmark
             } else {
-                cell?.accessoryType = .None
+                cell?.accessoryType = .none
             }
             return cell!
         case (7, _):
-            var cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+            var cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
             if cell == nil {
-                cell = UITableViewCell(style: .Default, reuseIdentifier: "Cell")
+                cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
             }
-            cell?.selectionStyle = .None
-            cell?.textLabel?.font = UIFont.systemFontOfSize(15)
+            cell?.selectionStyle = .none
+            cell?.textLabel?.font = UIFont.systemFont(ofSize: 15)
             cell?.textLabel?.text = kMonths[indexPath.row]
-            let bymonths = rule.bymonth ?? []
-            let months = bymonths.map({ (month) -> NSIndexPath in
-                return NSIndexPath(forRow: month - 1, inSection: 7)
+            let months = rule.bymonth.map({ (month) -> IndexPath in
+                return IndexPath(row: month - 1, section: 7)
             })
             if months.contains(indexPath) {
-                cell?.accessoryType = .Checkmark
+                cell?.accessoryType = .checkmark
             } else {
-                cell?.accessoryType = .None
+                cell?.accessoryType = .none
             }
             return cell!
         case (8, _):
-            var cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+            var cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
             if cell == nil {
-                cell = UITableViewCell(style: .Default, reuseIdentifier: "Cell")
+                cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
             }
-            cell?.selectionStyle = .None
-            cell?.textLabel?.font = UIFont.systemFontOfSize(15)
+            cell?.selectionStyle = .none
+            cell?.textLabel?.font = UIFont.systemFont(ofSize: 15)
             cell?.textLabel?.text = String(indexPath.row + 1)
-            let bymonthday = rule.bymonthday ?? []
-            let monthdays = bymonthday.map({ (month) -> NSIndexPath in
-                return NSIndexPath(forRow: month - 1, inSection: 8)
+            let monthdays = rule.bymonthday.map({ (month) -> IndexPath in
+                return IndexPath(row: month - 1, section: 8)
             })
             if monthdays.contains(indexPath) {
-                cell?.accessoryType = .Checkmark
+                cell?.accessoryType = .checkmark
             } else {
-                cell?.accessoryType = .None
+                cell?.accessoryType = .none
             }
             return cell!
         default:
-            var cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+            var cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
             if cell == nil {
-                cell = UITableViewCell(style: .Default, reuseIdentifier: "Cell")
+                cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
             }
-            cell?.textLabel?.font = UIFont.systemFontOfSize(15)
+            cell?.textLabel?.font = UIFont.systemFont(ofSize: 15)
             return cell!
         }
     }
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         switch (indexPath.section, indexPath.row) {
         case (6, _):
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            let byweekday = rule.byweekday ?? []
-            var weekdays = byweekday.map({ (weekday) -> NSIndexPath in
-                return NSIndexPath(forRow: weekday.toNumberSymbol(), inSection: 6)
+            let cell = tableView.cellForRow(at: indexPath)
+            var weekdays = rule.byweekday.map({ (weekday) -> IndexPath in
+                return IndexPath(row: weekday.toNumberSymbol(), section: 6)
             })
             if weekdays.contains(indexPath) {
-                cell?.accessoryType = .None
-                weekdays.removeAtIndex(weekdays.indexOf(indexPath)!)
+                cell?.accessoryType = .none
+                weekdays.remove(at: weekdays.index(of: indexPath)!)
                 rule.byweekday = weekdays.map({ (indexPath) -> EKWeekday in
                     return kEKWeekdays[indexPath.row]
-                }).sort(<)
+                }).sorted(by: <)
             } else {
-                cell?.accessoryType = .Checkmark
+                cell?.accessoryType = .checkmark
                 weekdays.append(indexPath)
                 rule.byweekday = weekdays.map({ (indexPath) -> EKWeekday in
                     return kEKWeekdays[indexPath.row]
-                }).sort(<)
+                }).sorted(by: <)
             }
         case (7, _):
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            let bymonths = rule.bymonth ?? []
-            var months = bymonths.map({ (month) -> NSIndexPath in
-                return NSIndexPath(forRow: month - 1, inSection: 7)
+            let cell = tableView.cellForRow(at: indexPath)
+            var months = rule.bymonth.map({ (month) -> IndexPath in
+                return IndexPath(row: month - 1, section: 7)
             })
             if months.contains(indexPath) {
-                cell?.accessoryType = .None
-                months.removeAtIndex(months.indexOf(indexPath)!)
+                cell?.accessoryType = .none
+                months.remove(at: months.index(of: indexPath)!)
                 rule.bymonth = months.map({ (indexPath) -> Int in
                     return indexPath.row + 1
-                }).sort(<)
+                }).sorted(by: <)
             } else {
-                cell?.accessoryType = .Checkmark
+                cell?.accessoryType = .checkmark
                 months.append(indexPath)
                 rule.bymonth = months.map({ (indexPath) -> Int in
                     return indexPath.row + 1
-                }).sort(<)
+                }).sorted(by: <)
             }
         case (8, _):
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            let bymonthday = rule.bymonthday ?? []
-            var monthdays = bymonthday.map({ (month) -> NSIndexPath in
-                return NSIndexPath(forRow: month - 1, inSection: 8)
+            let cell = tableView.cellForRow(at: indexPath)
+            var monthdays = rule.bymonthday.map({ (month) -> IndexPath in
+                return IndexPath(row: month - 1, section: 8)
             })
             if monthdays.contains(indexPath) {
-                cell?.accessoryType = .None
-                monthdays.removeAtIndex(monthdays.indexOf(indexPath)!)
+                cell?.accessoryType = .none
+                monthdays.remove(at: monthdays.index(of: indexPath)!)
                 rule.bymonthday = monthdays.map({ (indexPath) -> Int in
                     return indexPath.row + 1
-                }).sort(<)
+                }).sorted(by: <)
             } else {
-                cell?.accessoryType = .Checkmark
+                cell?.accessoryType = .checkmark
                 monthdays.append(indexPath)
                 rule.bymonthday = monthdays.map({ (indexPath) -> Int in
                     return indexPath.row + 1
-                }).sort(<)
+                }).sorted(by: <)
             }
         default:
             break
@@ -299,7 +317,7 @@ extension RRuleExampleViewController: UITableViewDataSource, UITableViewDelegate
 }
 
 extension RRuleExampleViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         switch pickerView.tag {
         case 0: return 1
         case 1: return 1
@@ -309,7 +327,7 @@ extension RRuleExampleViewController: UIPickerViewDataSource, UIPickerViewDelega
         }
     }
 
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch pickerView.tag {
         case 0: return kFrequencies.count
         case 1: return 999
@@ -319,11 +337,11 @@ extension RRuleExampleViewController: UIPickerViewDataSource, UIPickerViewDelega
         }
     }
 
-    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 30
     }
 
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView.tag {
         case 0:
             return kFrequencies[row]
@@ -337,7 +355,7 @@ extension RRuleExampleViewController: UIPickerViewDataSource, UIPickerViewDelega
         }
     }
 
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch pickerView.tag {
         case 0:
             rule.frequency = kFrequenciesDic[kFrequencies[row]]!
@@ -353,24 +371,24 @@ extension RRuleExampleViewController: UIPickerViewDataSource, UIPickerViewDelega
 }
 
 extension RRuleExampleViewController {
-    func startDateDidChange(datePicker: UIDatePicker) {
+    func startDateDidChange(_ datePicker: UIDatePicker) {
         rule.startDate = datePicker.date
     }
 
-    func endDateDidChange(datePicker: UIDatePicker) {
-        rule.recurrenceEnd = EKRecurrenceEnd(endDate: datePicker.date)
+    func endDateDidChange(_ datePicker: UIDatePicker) {
+        rule.recurrenceEnd = EKRecurrenceEnd(end: datePicker.date)
     }
 }
 
 extension RRuleExampleViewController: UITextViewDelegate {
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        if !textView.hasText() && text == "" {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if !textView.hasText && text == "" {
             return false
         }
 
         if text == "\n" {
             textView.resignFirstResponder()
-            rule = RecurrenceRule(recurrenceWithRRuleString: textView.text) ?? RecurrenceRule(frequency: .Daily)
+            rule = RecurrenceRule(rruleString: textView.text) ?? RecurrenceRule(frequency: .daily)
             return false
         }
         return true

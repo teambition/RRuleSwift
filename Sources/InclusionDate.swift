@@ -10,42 +10,41 @@ import Foundation
 
 public struct InclusionDate {
     /// All inclusive dates.
-    public private(set) var dates = [NSDate]()
+    public fileprivate(set) var dates = [Date]()
 
-    public init(dates: [NSDate]) {
+    public init(dates: [Date]) {
         self.dates = dates
     }
 
     public init?(rdateString string: String) {
-        let string = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-        guard let range = string.rangeOfString("RDATE:") where range.startIndex == string.startIndex else {
-//            print("error: invalid rdate string, must be started with 'RDATE:'")
+        let string = string.trimmingCharacters(in: .whitespaces)
+        guard let range = string.range(of: "RDATE:"), range.lowerBound == string.startIndex else {
             return nil
         }
-        let rdateString = string.substringFromIndex(range.endIndex)
-        let rdates = rdateString.componentsSeparatedByString(",").flatMap { (dateString) -> String? in
+        let rdateString = string.substring(from: range.upperBound)
+        let rdates = rdateString.components(separatedBy: ",").flatMap { (dateString) -> String? in
             if (dateString.isEmpty || dateString.characters.count == 0) {
                 return nil
             }
             return dateString
         }
 
-        self.dates = rdates.flatMap({ (dateString) -> NSDate? in
-            return RRule.dateFormatter.dateFromString(dateString)
+        self.dates = rdates.flatMap({ (dateString) -> Date? in
+            return RRule.dateFormatter.date(from: dateString)
         })
     }
 
     public func toRDateString() -> String {
         var rdateString = "RDATE:"
         let dateStrings = dates.map { (date) -> String in
-            return RRule.dateFormatter.stringFromDate(date)
+            return RRule.dateFormatter.string(from: date)
         }
         if dateStrings.count > 0 {
-            rdateString += dateStrings.joinWithSeparator(",")
+            rdateString += dateStrings.joined(separator: ",")
         }
 
-        if rdateString.substringFromIndex(rdateString.endIndex.advancedBy(-1)) == "," {
-            rdateString.removeAtIndex(rdateString.endIndex.advancedBy(-1))
+        if rdateString.substring(from: rdateString.characters.index(rdateString.endIndex, offsetBy: -1)) == "," {
+            rdateString.remove(at: rdateString.characters.index(rdateString.endIndex, offsetBy: -1))
         }
 
         return rdateString

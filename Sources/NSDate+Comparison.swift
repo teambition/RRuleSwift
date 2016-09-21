@@ -8,24 +8,24 @@
 
 import Foundation
 
-internal extension NSDate {
-    internal func isBefore(date: NSDate) -> Bool {
-        return compare(date) == .OrderedAscending
+internal extension Date {
+    internal func isBefore(_ date: Date) -> Bool {
+        return compare(date) == .orderedAscending
     }
 
-    internal func isSameWith(date: NSDate) -> Bool {
-        return compare(date) == .OrderedSame
+    internal func isSame(with date: Date) -> Bool {
+        return compare(date) == .orderedSame
     }
 
-    internal func isAfter(date: NSDate) -> Bool {
-        return compare(date) == .OrderedDescending
+    internal func isAfter(_ date: Date) -> Bool {
+        return compare(date) == .orderedDescending
     }
 
-    internal func isBeforeOrSameWith(date: NSDate) -> Bool {
-        return isBefore(date) || isSameWith(date)
+    internal func isBeforeOrSame(with date: Date) -> Bool {
+        return isBefore(date) || isSame(with: date)
     }
 
-    internal func isAfterOrSameWith(date: NSDate) -> Bool {
-        return isAfter(date) || isSameWith(date)
+    internal func isAfterOrSame(with date: Date) -> Bool {
+        return isAfter(date) || isSame(with: date)
     }
 }

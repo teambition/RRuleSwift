@@ -16,9 +16,9 @@
 		D325D6491D0574E00021E620 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D325D6481D0574E00021E620 /* NotificationCenter.framework */; };
 		D325D64C1D0574E00021E620 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D64B1D0574E00021E620 /* TodayViewController.swift */; };
 		D325D64F1D0574E00021E620 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D325D64D1D0574E00021E620 /* MainInterface.storyboard */; };
-		D342193D1D65576800A3B8E0 /* RRuleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D342193C1D65576800A3B8E0 /* RRuleSwift.framework */; };
-		D342193F1D65577F00A3B8E0 /* RRuleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D342193E1D65577F00A3B8E0 /* RRuleSwift.framework */; };
-		D34219401D65579400A3B8E0 /* RRuleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D342193C1D65576800A3B8E0 /* RRuleSwift.framework */; };
+		D3652DC11D937FB50025EC3C /* RRuleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3652DC01D937FB50025EC3C /* RRuleSwift.framework */; };
+		D3652DC21D937FBC0025EC3C /* RRuleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3652DC01D937FB50025EC3C /* RRuleSwift.framework */; };
+		D3652DC41D937FC70025EC3C /* RRuleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3652DC31D937FC70025EC3C /* RRuleSwift.framework */; };
 		EB48D1831D64202E001EE872 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB48D1811D64202E001EE872 /* Interface.storyboard */; };
 		EB48D1851D64202E001EE872 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB48D1841D64202E001EE872 /* Assets.xcassets */; };
 		EB48D18C1D64202E001EE872 /* RRuleSwiftExample-Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EB48D18B1D64202E001EE872 /* RRuleSwiftExample-Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -95,8 +95,8 @@
 		D325D64B1D0574E00021E620 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		D325D64E1D0574E00021E620 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		D325D6501D0574E00021E620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D342193C1D65576800A3B8E0 /* RRuleSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RRuleSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/RRuleSwift-bsfdvctfhfasceecxzjeffpridns/Build/Products/Debug-iphoneos/RRuleSwift.framework"; sourceTree = "<group>"; };
-		D342193E1D65577F00A3B8E0 /* RRuleSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RRuleSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/RRuleSwift-bsfdvctfhfasceecxzjeffpridns/Build/Products/Debug-watchos/RRuleSwift.framework"; sourceTree = "<group>"; };
+		D3652DC01D937FB50025EC3C /* RRuleSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RRuleSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/RRuleSwift-bsfdvctfhfasceecxzjeffpridns/Build/Products/Debug-iphonesimulator/RRuleSwift.framework"; sourceTree = "<group>"; };
+		D3652DC31D937FC70025EC3C /* RRuleSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RRuleSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/RRuleSwift-bsfdvctfhfasceecxzjeffpridns/Build/Products/Debug-watchsimulator/RRuleSwift.framework"; sourceTree = "<group>"; };
 		EB48D17F1D64202E001EE872 /* RRuleSwiftExample-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RRuleSwiftExample-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB48D1821D64202E001EE872 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		EB48D1841D64202E001EE872 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D342193D1D65576800A3B8E0 /* RRuleSwift.framework in Frameworks */,
+				D3652DC11D937FB50025EC3C /* RRuleSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,8 +123,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3652DC21D937FBC0025EC3C /* RRuleSwift.framework in Frameworks */,
 				D325D6491D0574E00021E620 /* NotificationCenter.framework in Frameworks */,
-				D34219401D65579400A3B8E0 /* RRuleSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D342193F1D65577F00A3B8E0 /* RRuleSwift.framework in Frameworks */,
+				D3652DC41D937FC70025EC3C /* RRuleSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,8 +179,8 @@
 		D325D6471D0574E00021E620 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D342193E1D65577F00A3B8E0 /* RRuleSwift.framework */,
-				D342193C1D65576800A3B8E0 /* RRuleSwift.framework */,
+				D3652DC31D937FC70025EC3C /* RRuleSwift.framework */,
+				D3652DC01D937FB50025EC3C /* RRuleSwift.framework */,
 				D325D6481D0574E00021E620 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
@@ -308,20 +308,24 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Teambition;
 				TargetAttributes = {
 					D31B13771CA8D8E400D0B863 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					D325D6451D0574E00021E620 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					EB48D17E1D64202E001EE872 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					EB48D18A1D64202E001EE872 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -470,8 +474,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -516,8 +522,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -536,6 +544,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -549,6 +558,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwiftExample;
 				PRODUCT_NAME = RRuleSwiftExample;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -560,6 +570,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwiftExample;
 				PRODUCT_NAME = RRuleSwiftExample;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -569,9 +580,10 @@
 				INFOPLIST_FILE = "RRuleSwiftExample-TodayExtension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Teambition.RRuleSwiftExample.RRuleSwiftExample-TodayExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwiftExample.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -581,41 +593,44 @@
 				INFOPLIST_FILE = "RRuleSwiftExample-TodayExtension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Teambition.RRuleSwiftExample.RRuleSwiftExample-TodayExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwiftExample.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		EB48D19E1D64202E001EE872 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = RRuleSwiftExample_Watch_Extension;
 				INFOPLIST_FILE = "RRuleSwiftExample-Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwiftExample.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwiftExample.WatchKitApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
 		EB48D19F1D64202E001EE872 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = RRuleSwiftExample_Watch_Extension;
 				INFOPLIST_FILE = "RRuleSwiftExample-Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwiftExample.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwiftExample.WatchKitApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -624,12 +639,13 @@
 			buildSettings = {
 				INFOPLIST_FILE = "RRuleSwiftExample-Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwiftExample.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwiftExample.WatchKitApp.WatchKitExtension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -638,12 +654,13 @@
 			buildSettings = {
 				INFOPLIST_FILE = "RRuleSwiftExample-Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwiftExample.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwiftExample.WatchKitApp.WatchKitExtension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};

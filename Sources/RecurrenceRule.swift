@@ -11,32 +11,32 @@ import EventKit
 
 public struct RecurrenceRule {
     /// The calendar of recurrence rule.
-    public var calendar = NSCalendar.currentCalendar()
+    public var calendar = Calendar.current
 
     /// The frequency of the recurrence rule.
     public var frequency: RecurrenceFrequency
 
-    /// Specifies how often the recurrence rule repeats over the unit of time indicated by its frequency. For example, a recurrence rule with a frequency type of RecurrenceFrequency.Weekly and an interval of 2 repeats every two weeks.
+    /// Specifies how often the recurrence rule repeats over the component of time indicated by its frequency. For example, a recurrence rule with a frequency type of RecurrenceFrequency.weekly and an interval of 2 repeats every two weeks.
     ///
     /// The default value of this property is 1.
     public var interval = 1
 
     /// Indicates which day of the week the recurrence rule treats as the first day of the week. 
     ///
-    /// The default value of this property is EKWeekday.Monday.
-    public var firstDayOfWeek: EKWeekday = .Monday
+    /// The default value of this property is EKWeekday.monday.
+    public var firstDayOfWeek: EKWeekday = .monday
 
     /// The start date of recurrence rule.
     ///
     /// The default value of this property is current date.
-    public var startDate = NSDate()
+    public var startDate = Date()
 
     /// Indicates when the recurrence rule ends. This can be represented by an end date or a number of occurrences.
     public var recurrenceEnd: EKRecurrenceEnd?
 
     /// An array of ordinal integers that filters which recurrences to include in the recurrence rule’s frequency. Values can be from 1 to 366 and from -1 to -366.
     ///
-    /// For example, if a bysetpos of -1 is combined with a RecurrenceFrequency.Monthly frequency, and a byweekday of (EKWeekday.Monday, EKWeekday.Tuesday, EKWeekday.Wednesday, EKWeekday.Thursday, EKWeekday.Friday), will result in the last work day of every month.
+    /// For example, if a bysetpos of -1 is combined with a RecurrenceFrequency.monthly frequency, and a byweekday of (EKWeekday.monday, EKWeekday.tuesday, EKWeekday.wednesday, EKWeekday.thursday, EKWeekday.friday), will result in the last work day of every month.
     ///
     /// Negative values indicate counting backwards from the end of the recurrence rule’s frequency.
     public var bysetpos = [Int]()
@@ -49,7 +49,7 @@ public struct RecurrenceRule {
     /// The months of the year associated with the recurrence rule, as an array of integers. Values can be from 1 to 12.
     public var bymonth = [Int]()
 
-    /// The weeks of the year associated with the recurrence rule, as an array of integers.  Values can be from 1 to 53 and from -1 to -53. According to ISO8601, the first week of the year is that containing at least four days of the new year.
+    /// The weeks of the year associated with the recurrence rule, as an array of integers. Values can be from 1 to 53 and from -1 to -53. According to ISO8601, the first week of the year is that containing at least four days of the new year.
     ///
     /// Negative values indicate counting backwards from the end of the year.
     public var byweekno = [Int]()
@@ -81,7 +81,7 @@ public struct RecurrenceRule {
         self.frequency = frequency
     }
 
-    public init?(recurrenceWithRRuleString rruleString: String) {
+    public init?(rruleString: String) {
         if let recurrenceRule = RRule.ruleFromString(rruleString) {
             self = recurrenceRule
         } else {

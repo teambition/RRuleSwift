@@ -11,14 +11,13 @@ import EventKit
 
 internal struct JavaScriptBridge {
     internal static func rrulejs() -> String? {
-        let libPath = NSBundle(identifier: "Teambition.RRuleSwift-iOS")?.pathForResource("rrule", ofType: "js") ?? NSBundle.mainBundle().pathForResource("rrule", ofType: "js")
+        let libPath = Bundle(identifier: "Teambition.RRuleSwift-iOS")?.path(forResource: "rrule", ofType: "js") ?? Bundle.main.path(forResource: "rrule", ofType: "js")
         guard let rrulelibPath = libPath else {
             return nil
         }
 
         do {
-            let rrulejs = try NSString(contentsOfFile: rrulelibPath, encoding: NSUTF8StringEncoding) as String
-            return rrulejs
+            return try String(contentsOfFile: rrulelibPath)
         } catch _ {
             return nil
         }
@@ -26,42 +25,42 @@ internal struct JavaScriptBridge {
 }
 
 internal extension RecurrenceFrequency {
-    private func toJSONFrequency() -> String {
+    fileprivate func toJSONFrequency() -> String {
         switch self {
-        case .Secondly: return "RRule.SECONDLY"
-        case .Minutely: return "RRule.MINUTELY"
-        case .Hourly: return "RRule.HOURLY"
-        case .Daily: return "RRule.DAILY"
-        case .Weekly: return "RRule.WEEKLY"
-        case .Monthly: return "RRule.MONTHLY"
-        case .Yearly: return "RRule.YEARLY"
+        case .secondly: return "RRule.SECONDLY"
+        case .minutely: return "RRule.MINUTELY"
+        case .hourly: return "RRule.HOURLY"
+        case .daily: return "RRule.DAILY"
+        case .weekly: return "RRule.WEEKLY"
+        case .monthly: return "RRule.MONTHLY"
+        case .yearly: return "RRule.YEARLY"
         }
     }
 }
 
 internal extension EKWeekday {
-    private func toJSONSymbol() -> String {
+    fileprivate func toJSONSymbol() -> String {
         switch self {
-        case .Monday: return "RRule.MO"
-        case .Tuesday: return "RRule.TU"
-        case .Wednesday: return "RRule.WE"
-        case .Thursday: return "RRule.TH"
-        case .Friday: return "RRule.FR"
-        case .Saturday: return "RRule.SA"
-        case .Sunday: return "RRule.SU"
+        case .monday: return "RRule.MO"
+        case .tuesday: return "RRule.TU"
+        case .wednesday: return "RRule.WE"
+        case .thursday: return "RRule.TH"
+        case .friday: return "RRule.FR"
+        case .saturday: return "RRule.SA"
+        case .sunday: return "RRule.SU"
         }
     }
 }
 
 internal extension RecurrenceRule {
-    internal func toJSONString(endlessRecurrenceCount endlessRecurrenceCount: Int) -> String {
+    internal func toJSONString(endless endlessRecurrenceCount: Int) -> String {
         var jsonString = "freq: \(frequency.toJSONFrequency()),"
         jsonString += "interval: \(max(1, interval)),"
         jsonString += "wkst: \(firstDayOfWeek.toJSONSymbol()),"
-        jsonString += "dtstart: new Date('\(RRule.ISO8601DateFormatter.stringFromDate(startDate))'),"
+        jsonString += "dtstart: new Date('\(RRule.ISO8601DateFormatter.string(from: startDate))'),"
 
         if let endDate = recurrenceEnd?.endDate {
-            jsonString += "until: new Date('\(RRule.ISO8601DateFormatter.stringFromDate(endDate))'),"
+            jsonString += "until: new Date('\(RRule.ISO8601DateFormatter.string(from: endDate))'),"
         } else if let count = recurrenceEnd?.occurrenceCount {
             jsonString += "count: \(count),"
         } else {
@@ -75,7 +74,7 @@ internal extension RecurrenceRule {
             return String(setpo)
         })
         if bysetposStrings.count > 0 {
-            jsonString += "bysetpos: [\(bysetposStrings.joinWithSeparator(","))],"
+            jsonString += "bysetpos: [\(bysetposStrings.joined(separator: ","))],"
         }
 
         let byyeardayStrings = byyearday.flatMap({ (yearday) -> String? in
@@ -85,7 +84,7 @@ internal extension RecurrenceRule {
             return String(yearday)
         })
         if byyeardayStrings.count > 0 {
-            jsonString += "byyearday: [\(byyeardayStrings.joinWithSeparator(","))],"
+            jsonString += "byyearday: [\(byyeardayStrings.joined(separator: ","))],"
         }
 
         let bymonthStrings = bymonth.flatMap({ (month) -> String? in
@@ -95,7 +94,7 @@ internal extension RecurrenceRule {
             return String(month)
         })
         if bymonthStrings.count > 0 {
-            jsonString += "bymonth: [\(bymonthStrings.joinWithSeparator(","))],"
+            jsonString += "bymonth: [\(bymonthStrings.joined(separator: ","))],"
         }
 
         let byweeknoStrings = byweekno.flatMap({ (weekno) -> String? in
@@ -105,7 +104,7 @@ internal extension RecurrenceRule {
             return String(weekno)
         })
         if byweeknoStrings.count > 0 {
-            jsonString += "byweekno: [\(byweeknoStrings.joinWithSeparator(","))],"
+            jsonString += "byweekno: [\(byweeknoStrings.joined(separator: ","))],"
         }
 
         let bymonthdayStrings = bymonthday.flatMap({ (monthday) -> String? in
@@ -115,39 +114,39 @@ internal extension RecurrenceRule {
             return String(monthday)
         })
         if bymonthdayStrings.count > 0 {
-            jsonString += "bymonthday: [\(bymonthdayStrings.joinWithSeparator(","))],"
+            jsonString += "bymonthday: [\(bymonthdayStrings.joined(separator: ","))],"
         }
 
         let byweekdayJSSymbols = byweekday.map({ (weekday) -> String in
             return weekday.toJSONSymbol()
         })
         if byweekdayJSSymbols.count > 0 {
-            jsonString += "byweekday: [\(byweekdayJSSymbols.joinWithSeparator(","))],"
+            jsonString += "byweekday: [\(byweekdayJSSymbols.joined(separator: ","))],"
         }
 
         let byhourStrings = byhour.map({ (hour) -> String in
             return String(hour)
         })
         if byhourStrings.count > 0 {
-            jsonString += "byhour: [\(byhourStrings.joinWithSeparator(","))],"
+            jsonString += "byhour: [\(byhourStrings.joined(separator: ","))],"
         }
 
         let byminuteStrings = byminute.map({ (minute) -> String in
             return String(minute)
         })
         if byminuteStrings.count > 0 {
-            jsonString += "byminute: [\(byminuteStrings.joinWithSeparator(","))],"
+            jsonString += "byminute: [\(byminuteStrings.joined(separator: ","))],"
         }
 
         let bysecondStrings = bysecond.map({ (second) -> String in
             return String(second)
         })
         if bysecondStrings.count > 0 {
-            jsonString += "bysecond: [\(bysecondStrings.joinWithSeparator(","))]"
+            jsonString += "bysecond: [\(bysecondStrings.joined(separator: ","))]"
         }
 
-        if jsonString.substringFromIndex(jsonString.endIndex.advancedBy(-1)) == "," {
-            jsonString.removeAtIndex(jsonString.endIndex.advancedBy(-1))
+        if jsonString.substring(from: jsonString.characters.index(jsonString.endIndex, offsetBy: -1)) == "," {
+            jsonString.remove(at: jsonString.characters.index(jsonString.endIndex, offsetBy: -1))
         }
 
         return jsonString

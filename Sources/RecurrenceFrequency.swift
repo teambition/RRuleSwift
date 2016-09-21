@@ -7,35 +7,35 @@
 //
 
 public enum RecurrenceFrequency {
-    case Yearly
-    case Monthly
-    case Weekly
-    case Daily
-    case Hourly
-    case Minutely
-    case Secondly
+    case yearly
+    case monthly
+    case weekly
+    case daily
+    case hourly
+    case minutely
+    case secondly
 
     internal func toString() -> String {
         switch self {
-        case .Secondly: return "SECONDLY"
-        case .Minutely: return "MINUTELY"
-        case .Hourly: return "HOURLY"
-        case .Daily: return "DAILY"
-        case .Weekly: return "WEEKLY"
-        case .Monthly: return "MONTHLY"
-        case .Yearly: return "YEARLY"
+        case .secondly: return "SECONDLY"
+        case .minutely: return "MINUTELY"
+        case .hourly: return "HOURLY"
+        case .daily: return "DAILY"
+        case .weekly: return "WEEKLY"
+        case .monthly: return "MONTHLY"
+        case .yearly: return "YEARLY"
         }
     }
 
-    internal static func frequencyFromString(string: String) -> RecurrenceFrequency? {
+    internal static func frequency(from string: String) -> RecurrenceFrequency? {
         switch string {
-        case "SECONDLY": return .Secondly
-        case "MINUTELY": return .Minutely
-        case "HOURLY": return .Hourly
-        case "DAILY": return .Daily
-        case "WEEKLY": return .Weekly
-        case "MONTHLY": return .Monthly
-        case "YEARLY": return .Yearly
+        case "SECONDLY": return .secondly
+        case "MINUTELY": return .minutely
+        case "HOURLY": return .hourly
+        case "DAILY": return .daily
+        case "WEEKLY": return .weekly
+        case "MONTHLY": return .monthly
+        case "YEARLY": return .yearly
         default: return nil
         }
     }

@@ -11,37 +11,37 @@ import EventKit
 internal extension EKWeekday {
     internal func toSymbol() -> String {
         switch self {
-        case .Monday: return "MO"
-        case .Tuesday: return "TU"
-        case .Wednesday: return "WE"
-        case .Thursday: return "TH"
-        case .Friday: return "FR"
-        case .Saturday: return "SA"
-        case .Sunday: return "SU"
+        case .monday: return "MO"
+        case .tuesday: return "TU"
+        case .wednesday: return "WE"
+        case .thursday: return "TH"
+        case .friday: return "FR"
+        case .saturday: return "SA"
+        case .sunday: return "SU"
         }
     }
 
     internal func toNumberSymbol() -> Int {
         switch self {
-        case .Monday: return 0
-        case .Tuesday: return 1
-        case .Wednesday: return 2
-        case .Thursday: return 3
-        case .Friday: return 4
-        case .Saturday: return 5
-        case .Sunday: return 6
+        case .monday: return 0
+        case .tuesday: return 1
+        case .wednesday: return 2
+        case .thursday: return 3
+        case .friday: return 4
+        case .saturday: return 5
+        case .sunday: return 6
         }
     }
 
-    internal static func weekdayFromSymbol(symbol: String) -> EKWeekday? {
+    internal static func weekdayFromSymbol(_ symbol: String) -> EKWeekday? {
         switch symbol {
-        case "MO", "0": return EKWeekday.Monday
-        case "TU", "1": return EKWeekday.Tuesday
-        case "WE", "2": return EKWeekday.Wednesday
-        case "TH", "3": return EKWeekday.Thursday
-        case "FR", "4": return EKWeekday.Friday
-        case "SA", "5": return EKWeekday.Saturday
-        case "SU", "6": return EKWeekday.Sunday
+        case "MO", "0": return EKWeekday.monday
+        case "TU", "1": return EKWeekday.tuesday
+        case "WE", "2": return EKWeekday.wednesday
+        case "TH", "3": return EKWeekday.thursday
+        case "FR", "4": return EKWeekday.friday
+        case "SA", "5": return EKWeekday.saturday
+        case "SU", "6": return EKWeekday.sunday
         default: return nil
         }
     }

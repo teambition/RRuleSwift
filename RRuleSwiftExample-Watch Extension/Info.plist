@@ -27,7 +27,7 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>WKAppBundleIdentifier</key>
-			<string>Teambition.RRuleSwiftExample.watchkitapp</string>
+			<string>Teambition.RRuleSwiftExample.WatchKitApp</string>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>

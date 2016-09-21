@@ -15,7 +15,7 @@ github "teambition/RRuleSwift"
 ###Usage
 ##### Initialization
 ```swift
-var recurrenceRule = RecurrenceRule(frequency: .Daily)
+var recurrenceRule = RecurrenceRule(frequency: .daily)
 recurrenceRule.calendar = ...
 recurrenceRule.frequency = ...
 recurrenceRule.interval = ...
@@ -38,7 +38,7 @@ recurrenceRule.exdate = ...
 #####  Rule form string
 ```swift
 let ruleString = "RRULE:FREQ=MONTHLY;DTSTART=20160404T021000Z;COUNT=5;INTERVAL=2;WKST=MO;BYDAY=MO,TU"
-let rule = RecurrenceRule(recurrenceWithRRuleString: ruleString)
+let rule = RecurrenceRule(rruleString: ruleString)
 ```
 
 #####  String form rule
@@ -63,7 +63,7 @@ if let inclusionDate = InclusionDate(rdateString: rdateString) {
 }
 
 let exdateString = "EXDATE:20181231T160000Z,20201231T160000Z"
-if let exclusionDate = ExclusionDate(exdateString: exdateString, unitGranularity: .Year) {
+if let exclusionDate = ExclusionDate(exdateString: exdateString, granularity: .year) {
     print(exclusionDate.toExDateString())
     // EXDATE:20181231T160000Z,20201231T160000Z
 
@@ -75,10 +75,10 @@ if let exclusionDate = ExclusionDate(exdateString: exdateString, unitGranularity
 }
 ```
 
-##### Occurrence generator
+##### Occurrence iterator
 ```swift
 let ruleString = "RRULE:FREQ=YEARLY;COUNT=11;WKST=MO"
-if let rule = RecurrenceRule(recurrenceWithRRuleString: ruleString) {
+if let rule = RecurrenceRule(rruleString: ruleString) {
     var rule = rule
     rule.rdate = inclusionDate // RDATE:20180706T160000Z,20210706T160000Z
     rule.exdate = exclusionDate // EXDATE:20181231T160000Z,20201231T160000Z
@@ -97,9 +97,9 @@ if let rule = RecurrenceRule(recurrenceWithRRuleString: ruleString) {
     2026-04-14 14:22:30 Tue
     */
 
-    let date = dateFormatter.dateFromString("2018-01-01 00:00:00 Sun")
-    let otherDate = dateFormatter.dateFromString("2024-01-01 00:00:00 Mon")
-    let betweenDates = rule.occurrencesBetween(date: date!, andDate: otherDate!)
+    let date = dateFormatter.date(from: "2018-01-01 00:00:00 Sun")!
+    let otherDate = dateFormatter.date(from: "2024-01-01 00:00:00 Mon")!
+    let betweenDates = rule.occurrences(between: date, and: otherDate)
     print(betweenDates)
     /*
     2018-04-14 14:22:30 Sat

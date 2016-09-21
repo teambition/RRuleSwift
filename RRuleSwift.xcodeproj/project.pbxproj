@@ -11,7 +11,7 @@
 		EB48D1621D641D45001EE872 /* EKWeekday+RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */; };
 		EB48D1631D641D45001EE872 /* ExclusionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1521D641D45001EE872 /* ExclusionDate.swift */; };
 		EB48D1641D641D45001EE872 /* ExclusionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1521D641D45001EE872 /* ExclusionDate.swift */; };
-		EB48D1651D641D45001EE872 /* Generators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1531D641D45001EE872 /* Generators.swift */; };
+		EB48D1651D641D45001EE872 /* Iterators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1531D641D45001EE872 /* Iterators.swift */; };
 		EB48D1671D641D45001EE872 /* InclusionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1541D641D45001EE872 /* InclusionDate.swift */; };
 		EB48D1681D641D45001EE872 /* InclusionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1541D641D45001EE872 /* InclusionDate.swift */; };
 		EB48D1691D641D45001EE872 /* JavaScriptBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1551D641D45001EE872 /* JavaScriptBridge.swift */; };
@@ -34,7 +34,7 @@
 		EB48D1371D641AD6001EE872 /* RRuleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RRuleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EKWeekday+RRule.swift"; sourceTree = "<group>"; };
 		EB48D1521D641D45001EE872 /* ExclusionDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExclusionDate.swift; sourceTree = "<group>"; };
-		EB48D1531D641D45001EE872 /* Generators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generators.swift; sourceTree = "<group>"; };
+		EB48D1531D641D45001EE872 /* Iterators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Iterators.swift; sourceTree = "<group>"; };
 		EB48D1541D641D45001EE872 /* InclusionDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InclusionDate.swift; sourceTree = "<group>"; };
 		EB48D1551D641D45001EE872 /* JavaScriptBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JavaScriptBridge.swift; sourceTree = "<group>"; };
 		EB48D1571D641D45001EE872 /* nlp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = nlp.js; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 				EB48D15C1D641D45001EE872 /* RRule.swift */,
 				EB48D1521D641D45001EE872 /* ExclusionDate.swift */,
 				EB48D1541D641D45001EE872 /* InclusionDate.swift */,
-				EB48D1531D641D45001EE872 /* Generators.swift */,
+				EB48D1531D641D45001EE872 /* Iterators.swift */,
 				EB48D1551D641D45001EE872 /* JavaScriptBridge.swift */,
 				EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */,
 				EB48D1591D641D45001EE872 /* NSDate+Comparison.swift */,
@@ -184,14 +184,16 @@
 		D31B138E1CA8E02E00D0B863 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Teambition;
 				TargetAttributes = {
 					D31B13961CA8E02E00D0B863 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					EB48D1361D641AD6001EE872 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -241,7 +243,7 @@
 				EB48D1631D641D45001EE872 /* ExclusionDate.swift in Sources */,
 				EB48D1711D641D45001EE872 /* RecurrenceFrequency.swift in Sources */,
 				EB48D1611D641D45001EE872 /* EKWeekday+RRule.swift in Sources */,
-				EB48D1651D641D45001EE872 /* Generators.swift in Sources */,
+				EB48D1651D641D45001EE872 /* Iterators.swift in Sources */,
 				EB48D1731D641D45001EE872 /* RecurrenceRule.swift in Sources */,
 				EB48D1691D641D45001EE872 /* JavaScriptBridge.swift in Sources */,
 				EB48D16F1D641D45001EE872 /* NSDate+Comparison.swift in Sources */,
@@ -280,8 +282,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -329,8 +333,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -350,6 +356,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -361,6 +368,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -368,10 +376,11 @@
 				INFOPLIST_FILE = "Sources/Supporting Files/Info-iOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = "Teambition.RRuleSwift-iOS";
 				PRODUCT_NAME = RRuleSwift;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -379,6 +388,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -386,9 +396,10 @@
 				INFOPLIST_FILE = "Sources/Supporting Files/Info-iOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Teambition.RRuleSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = "Teambition.RRuleSwift-iOS";
 				PRODUCT_NAME = RRuleSwift;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -397,6 +408,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -404,14 +416,15 @@
 				INFOPLIST_FILE = "Sources/Supporting Files/Info-watchOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Teambition.RRuleSwift-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "Teambition.RRuleSwift-watchOS";
 				PRODUCT_NAME = RRuleSwift;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME).h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -420,6 +433,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -427,13 +441,14 @@
 				INFOPLIST_FILE = "Sources/Supporting Files/Info-watchOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Teambition.RRuleSwift-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "Teambition.RRuleSwift-watchOS";
 				PRODUCT_NAME = RRuleSwift;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME).h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
