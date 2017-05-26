@@ -1,19 +1,19 @@
-#RRuleSwift
+# RRuleSwift
 Swift rrule library for working with recurrence rules of calendar dates.
 
 ![Example](Gif/RRuleSwiftExample.gif "RRuleSwiftExample")
 
 RRuleSwift is based on [rrule.js](https://github.com/jkbrzt/rrule).
 
-##How To Get Started
-###Carthage
+## How To Get Started
+### Carthage
 Specify "RRuleSwift" in your ```Cartfile```:
 ```ogdl 
 github "teambition/RRuleSwift"
 ```
 
-###Usage
-##### Initialization
+### Usage
+#### Initialization
 ```swift
 var recurrenceRule = RecurrenceRule(frequency: .daily)
 recurrenceRule.calendar = ...
@@ -35,20 +35,20 @@ recurrenceRule.rdate = ...
 recurrenceRule.exdate = ...
 ```
 
-#####  Rule form string
+####  Rule form string
 ```swift
 let ruleString = "RRULE:FREQ=MONTHLY;DTSTART=20160404T021000Z;COUNT=5;INTERVAL=2;WKST=MO;BYDAY=MO,TU"
 let rule = RecurrenceRule(rruleString: ruleString)
 ```
 
-#####  String form rule
+####  String form rule
 ```swift
 let ruleString = rule.toRRuleString()
 print(ruleString)
 // RRULE:FREQ=MONTHLY;DTSTART=20160404T021000Z;COUNT=5;INTERVAL=2;WKST=MO;BYDAY=MO,TU
 ```
 
-##### Inclusion date and Exclusion date
+#### Inclusion date and Exclusion date
 ```swift
 let rdateString = "RDATE:20180706T160000Z,20210706T160000Z"
 if let inclusionDate = InclusionDate(rdateString: rdateString) {
@@ -75,7 +75,7 @@ if let exclusionDate = ExclusionDate(exdateString: exdateString, granularity: .y
 }
 ```
 
-##### Occurrence iterator
+#### Occurrence iterator
 ```swift
 let ruleString = "RRULE:FREQ=YEARLY;COUNT=11;WKST=MO"
 if let rule = RecurrenceRule(rruleString: ruleString) {
