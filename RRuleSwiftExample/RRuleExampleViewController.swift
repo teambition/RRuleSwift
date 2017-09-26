@@ -96,7 +96,7 @@ class RRuleExampleViewController: UIViewController {
         print("\n")
     }
 
-    func resetButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func resetButtonTapped(_ sender: UIBarButtonItem) {
         rule = RecurrenceRule(frequency: .daily)
     }
 }
@@ -371,11 +371,11 @@ extension RRuleExampleViewController: UIPickerViewDataSource, UIPickerViewDelega
 }
 
 extension RRuleExampleViewController {
-    func startDateDidChange(_ datePicker: UIDatePicker) {
+    @objc func startDateDidChange(_ datePicker: UIDatePicker) {
         rule.startDate = datePicker.date
     }
 
-    func endDateDidChange(_ datePicker: UIDatePicker) {
+    @objc func endDateDidChange(_ datePicker: UIDatePicker) {
         rule.recurrenceEnd = EKRecurrenceEnd(end: datePicker.date)
     }
 }

@@ -29,7 +29,7 @@ public struct RRule {
         guard let range = string.range(of: "RRULE:"), range.lowerBound == string.startIndex else {
             return nil
         }
-        let ruleString = string.substring(from: range.upperBound)
+        let ruleString = String(string.suffix(from: range.upperBound))
         let rules = ruleString.components(separatedBy: ";").flatMap { (rule) -> String? in
             if (rule.isEmpty || rule.characters.count == 0) {
                 return nil
@@ -268,7 +268,7 @@ public struct RRule {
             rruleString += "BYSECOND=\(bysecondStrings.joined(separator: ","));"
         }
 
-        if rruleString.substring(from: rruleString.characters.index(rruleString.endIndex, offsetBy: -1)) == ";" {
+        if String(rruleString.suffix(from: rruleString.characters.index(rruleString.endIndex, offsetBy: -1))) == ";" {
             rruleString.remove(at: rruleString.characters.index(rruleString.endIndex, offsetBy: -1))
         }
 

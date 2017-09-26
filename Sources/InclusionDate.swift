@@ -21,7 +21,7 @@ public struct InclusionDate {
         guard let range = string.range(of: "RDATE:"), range.lowerBound == string.startIndex else {
             return nil
         }
-        let rdateString = string.substring(from: range.upperBound)
+        let rdateString = String(string.suffix(from: range.upperBound))
         let rdates = rdateString.components(separatedBy: ",").flatMap { (dateString) -> String? in
             if (dateString.isEmpty || dateString.characters.count == 0) {
                 return nil
@@ -43,7 +43,7 @@ public struct InclusionDate {
             rdateString += dateStrings.joined(separator: ",")
         }
 
-        if rdateString.substring(from: rdateString.characters.index(rdateString.endIndex, offsetBy: -1)) == "," {
+        if String(rdateString.suffix(from: rdateString.characters.index(rdateString.endIndex, offsetBy: -1))) == "," {
             rdateString.remove(at: rdateString.characters.index(rdateString.endIndex, offsetBy: -1))
         }
 

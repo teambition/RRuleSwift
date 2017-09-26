@@ -9,15 +9,15 @@
 import Foundation
 import JavaScriptCore
 
-internal struct Iterator {
-    static let endlessRecurrenceCount = 500
-    static let rruleContext: JSContext? = {
+public struct Iterator {
+    public static let endlessRecurrenceCount = 500
+    internal static let rruleContext: JSContext? = {
         guard let rrulejs = JavaScriptBridge.rrulejs() else {
             return nil
         }
         let context = JSContext()
         context?.exceptionHandler = { context, exception in
-            print("[RRuleSwift] rrule.js error: \(exception)")
+            print("[RRuleSwift] rrule.js error: \(String(describing: exception))")
         }
         let _ = context?.evaluateScript(rrulejs)
         return context
