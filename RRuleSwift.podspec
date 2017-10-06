@@ -14,7 +14,9 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "8.0"
   s.watchos.deployment_target = "2.0"
   s.source       = { :git => "https://github.com/teambition/RRuleSwift.git", :tag => "#{s.version}" }
-  s.source_files  = "Sources", "Sources/**/*.{h,m}"
+  s.source_files = "Sources", "Sources/**/*.{h,m}"
   s.watchos.exclude_files = "Sources/JavaScriptBridge.swift", "Sources/Iterators.swift"
-  s.resource  = "Sources/lib/*.js"
+  s.resource     = "Sources/lib/*.js"
+  s.frameworks   = "Foundation", "EventKit"
+  s.ios.frameworks = "Foundation", "EventKit", "JavaScriptCore"
 end
