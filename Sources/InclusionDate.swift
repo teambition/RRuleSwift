@@ -30,7 +30,12 @@ public struct InclusionDate {
         }
 
         self.dates = rdates.flatMap({ (dateString) -> Date? in
-            return RRule.dateFormatter.date(from: dateString)
+            if let date = RRule.dateFormatter.date(from: dateString) {
+                return date
+            } else if let date = RRule.realDate(dateString) {
+                return date
+            }
+            return nil
         })
     }
 

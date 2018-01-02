@@ -33,7 +33,12 @@ public struct ExclusionDate {
         }
 
         self.dates = exdates.flatMap({ (dateString) -> Date? in
-            return RRule.dateFormatter.date(from: dateString)
+            if let date = RRule.dateFormatter.date(from: dateString) {
+                return date
+            } else if let date = RRule.realDate(dateString) {
+                return date
+            }
+            return nil
         })
         self.component = component
     }

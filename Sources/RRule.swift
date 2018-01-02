@@ -16,6 +16,12 @@ public struct RRule {
         dateFormatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
         return dateFormatter
     }()
+    public static let ymdDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        dateFormatter.dateFormat = "yyyyMMdd"
+        return dateFormatter
+    }()
 
     internal static let ISO8601DateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -69,11 +75,15 @@ public struct RRule {
             if ruleName == "DTSTART" {
                 if let startDate = dateFormatter.date(from: ruleValue) {
                     recurrenceRule.startDate = startDate
+                } else if let startDate = realDate(ruleValue) {
+                    recurrenceRule.startDate = startDate
                 }
             }
 
             if ruleName == "UNTIL" {
                 if let endDate = dateFormatter.date(from: ruleValue) {
+                    recurrenceRule.recurrenceEnd = EKRecurrenceEnd(end: endDate)
+                } else if let endDate = realDate(ruleValue) {
                     recurrenceRule.recurrenceEnd = EKRecurrenceEnd(end: endDate)
                 }
             } else if ruleName == "COUNT" {
@@ -273,5 +283,21 @@ public struct RRule {
         }
 
         return rruleString
+    }
+    
+    static func realDate(_ dateString: String?) -> Date? {
+        guard let dateString = dateString else { return nil }
+        
+        let date = ymdDateFormatter.date(from: dateString)
+        let destinationTimeZone = NSTimeZone.local
+        let sourceGMTOffset = destinationTimeZone.secondsFromGMT(for: Date())
+        
+        if let timeInterval = date?.timeIntervalSince1970 {
+            let realOffset = timeInterval - Double(sourceGMTOffset)
+            let realDate = Date(timeIntervalSince1970: realOffset)
+            
+            return realDate
+        }
+        return nil
     }
 }
