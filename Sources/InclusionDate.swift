@@ -22,14 +22,14 @@ public struct InclusionDate {
             return nil
         }
         let rdateString = String(string.suffix(from: range.upperBound))
-        let rdates = rdateString.components(separatedBy: ",").flatMap { (dateString) -> String? in
-            if (dateString.isEmpty || dateString.characters.count == 0) {
+        let rdates = rdateString.components(separatedBy: ",").compactMap { (dateString) -> String? in
+            if dateString.isEmpty {
                 return nil
             }
             return dateString
         }
 
-        self.dates = rdates.flatMap({ (dateString) -> Date? in
+        self.dates = rdates.compactMap({ (dateString) -> Date? in
             if let date = RRule.dateFormatter.date(from: dateString) {
                 return date
             } else if let date = RRule.realDate(dateString) {
@@ -48,8 +48,8 @@ public struct InclusionDate {
             rdateString += dateStrings.joined(separator: ",")
         }
 
-        if String(rdateString.suffix(from: rdateString.characters.index(rdateString.endIndex, offsetBy: -1))) == "," {
-            rdateString.remove(at: rdateString.characters.index(rdateString.endIndex, offsetBy: -1))
+        if String(rdateString.suffix(from: rdateString.index(rdateString.endIndex, offsetBy: -1))) == "," {
+            rdateString.remove(at: rdateString.index(rdateString.endIndex, offsetBy: -1))
         }
 
         return rdateString
