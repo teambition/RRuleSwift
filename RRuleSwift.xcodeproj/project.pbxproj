@@ -26,7 +26,7 @@
 		EB48D1751D641D45001EE872 /* RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D15C1D641D45001EE872 /* RRule.swift */; };
 		EB48D1761D641D45001EE872 /* RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D15C1D641D45001EE872 /* RRule.swift */; };
 		EB48D17B1D641D45001EE872 /* RRuleSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = EB48D1601D641D45001EE872 /* RRuleSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB48D17C1D641D45001EE872 /* RRuleSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = EB48D1601D641D45001EE872 /* RRuleSwift.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		EB48D17C1D641D45001EE872 /* RRuleSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = EB48D1601D641D45001EE872 /* RRuleSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -438,7 +438,7 @@
 				PRODUCT_NAME = RRuleSwift;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME).h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -464,7 +464,7 @@
 				PRODUCT_NAME = RRuleSwift;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME).h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
