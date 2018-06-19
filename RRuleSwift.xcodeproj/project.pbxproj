@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BD694AB20D9C6F40008B4C6 /* DateFormatter+RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD694AA20D9C6F40008B4C6 /* DateFormatter+RRule.swift */; };
 		EB48D1611D641D45001EE872 /* EKWeekday+RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */; };
 		EB48D1621D641D45001EE872 /* EKWeekday+RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */; };
 		EB48D1631D641D45001EE872 /* ExclusionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1521D641D45001EE872 /* ExclusionDate.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6BD694AA20D9C6F40008B4C6 /* DateFormatter+RRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+RRule.swift"; sourceTree = "<group>"; };
 		D31B13971CA8E02E00D0B863 /* RRuleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RRuleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB48D1371D641AD6001EE872 /* RRuleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RRuleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EKWeekday+RRule.swift"; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				EB48D1551D641D45001EE872 /* JavaScriptBridge.swift */,
 				EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */,
 				EB48D1591D641D45001EE872 /* NSDate+Comparison.swift */,
+				6BD694AA20D9C6F40008B4C6 /* DateFormatter+RRule.swift */,
 				EB48D1561D641D45001EE872 /* lib */,
 				EB48D15D1D641D45001EE872 /* Supporting Files */,
 			);
@@ -248,6 +251,7 @@
 				EB48D1691D641D45001EE872 /* JavaScriptBridge.swift in Sources */,
 				EB48D16F1D641D45001EE872 /* NSDate+Comparison.swift in Sources */,
 				EB48D1751D641D45001EE872 /* RRule.swift in Sources */,
+				6BD694AB20D9C6F40008B4C6 /* DateFormatter+RRule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
