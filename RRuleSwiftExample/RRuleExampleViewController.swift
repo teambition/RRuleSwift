@@ -198,7 +198,7 @@ extension RRuleExampleViewController: UITableViewDataSource, UITableViewDelegate
                 cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
             }
             cell?.selectionStyle = .none
-            cell?.textLabel?.font = UIFont.systemFont(ofSize: 15)
+            cell?.textLabel?.font = .systemFont(ofSize: 15)
             cell?.textLabel?.text = kWeekdays[indexPath.row]
             let weekdays = rule.byweekday.map({ (weekday) -> IndexPath in
                 return IndexPath(row: weekday.toNumberSymbol(), section: 6)
@@ -215,7 +215,7 @@ extension RRuleExampleViewController: UITableViewDataSource, UITableViewDelegate
                 cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
             }
             cell?.selectionStyle = .none
-            cell?.textLabel?.font = UIFont.systemFont(ofSize: 15)
+            cell?.textLabel?.font = .systemFont(ofSize: 15)
             cell?.textLabel?.text = kMonths[indexPath.row]
             let months = rule.bymonth.map({ (month) -> IndexPath in
                 return IndexPath(row: month - 1, section: 7)
@@ -232,7 +232,7 @@ extension RRuleExampleViewController: UITableViewDataSource, UITableViewDelegate
                 cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
             }
             cell?.selectionStyle = .none
-            cell?.textLabel?.font = UIFont.systemFont(ofSize: 15)
+            cell?.textLabel?.font = .systemFont(ofSize: 15)
             cell?.textLabel?.text = String(indexPath.row + 1)
             let monthdays = rule.bymonthday.map({ (month) -> IndexPath in
                 return IndexPath(row: month - 1, section: 8)
@@ -248,7 +248,7 @@ extension RRuleExampleViewController: UITableViewDataSource, UITableViewDelegate
             if cell == nil {
                 cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
             }
-            cell?.textLabel?.font = UIFont.systemFont(ofSize: 15)
+            cell?.textLabel?.font = .systemFont(ofSize: 15)
             return cell!
         }
     }
