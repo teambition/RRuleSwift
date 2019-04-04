@@ -9,23 +9,23 @@
 import Foundation
 
 internal extension Date {
-    internal func isBefore(_ date: Date) -> Bool {
+    func isBefore(_ date: Date) -> Bool {
         return compare(date) == .orderedAscending
     }
 
-    internal func isSame(with date: Date) -> Bool {
+    func isSame(with date: Date) -> Bool {
         return compare(date) == .orderedSame
     }
 
-    internal func isAfter(_ date: Date) -> Bool {
+    func isAfter(_ date: Date) -> Bool {
         return compare(date) == .orderedDescending
     }
 
-    internal func isBeforeOrSame(with date: Date) -> Bool {
+    func isBeforeOrSame(with date: Date) -> Bool {
         return isBefore(date) || isSame(with: date)
     }
 
-    internal func isAfterOrSame(with date: Date) -> Bool {
+    func isAfterOrSame(with date: Date) -> Bool {
         return isAfter(date) || isSame(with: date)
     }
 }

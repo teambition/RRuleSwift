@@ -155,7 +155,7 @@ extension RRuleExampleViewController: UITableViewDataSource, UITableViewDelegate
             cell.pickerView.tag = indexPath.section
             cell.pickerView.dataSource = self
             cell.pickerView.delegate = self
-            cell.pickerView.selectRow(kFrequencyStrings.index(of: rule.frequency.toString()) ?? 0, inComponent: 0, animated: true)
+            cell.pickerView.selectRow(kFrequencyStrings.firstIndex(of: rule.frequency.toString()) ?? 0, inComponent: 0, animated: true)
             return cell
         case (1, _):
             let cell = tableView.dequeueReusableCell(withIdentifier: kPickerViewCellID, for: indexPath) as! PickerViewCell
@@ -263,7 +263,7 @@ extension RRuleExampleViewController: UITableViewDataSource, UITableViewDelegate
             })
             if weekdays.contains(indexPath) {
                 cell?.accessoryType = .none
-                weekdays.remove(at: weekdays.index(of: indexPath)!)
+                weekdays.remove(at: weekdays.firstIndex(of: indexPath)!)
                 rule.byweekday = weekdays.map({ (indexPath) -> EKWeekday in
                     return kEKWeekdays[indexPath.row]
                 }).sorted(by: <)
@@ -281,7 +281,7 @@ extension RRuleExampleViewController: UITableViewDataSource, UITableViewDelegate
             })
             if months.contains(indexPath) {
                 cell?.accessoryType = .none
-                months.remove(at: months.index(of: indexPath)!)
+                months.remove(at: months.firstIndex(of: indexPath)!)
                 rule.bymonth = months.map({ (indexPath) -> Int in
                     return indexPath.row + 1
                 }).sorted(by: <)
@@ -299,7 +299,7 @@ extension RRuleExampleViewController: UITableViewDataSource, UITableViewDelegate
             })
             if monthdays.contains(indexPath) {
                 cell?.accessoryType = .none
-                monthdays.remove(at: monthdays.index(of: indexPath)!)
+                monthdays.remove(at: monthdays.firstIndex(of: indexPath)!)
                 rule.bymonthday = monthdays.map({ (indexPath) -> Int in
                     return indexPath.row + 1
                 }).sorted(by: <)

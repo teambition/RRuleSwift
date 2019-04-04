@@ -53,7 +53,7 @@ internal extension EKWeekday {
 }
 
 internal extension RecurrenceRule {
-    internal func toJSONString(endless endlessRecurrenceCount: Int) -> String {
+    func toJSONString(endless endlessRecurrenceCount: Int) -> String {
         var jsonString = "freq: \(frequency.toJSONFrequency()),"
         jsonString += "interval: \(max(1, interval)),"
         jsonString += "wkst: \(firstDayOfWeek.toJSONSymbol()),"
