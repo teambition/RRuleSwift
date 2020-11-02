@@ -20,7 +20,9 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.watchos.deployment_target = '2.0'
 
-
+  s.frameworks   = "Foundation", "EventKit"
+  s.ios.frameworks = "Foundation", "EventKit", "JavaScriptCore"
+  
   s.source_files = 'Sources/*.swift', 'Sources/lib/*.js'
 
 end
