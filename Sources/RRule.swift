@@ -11,22 +11,17 @@ import EventKit
 
 public struct RRule {
     public static let dateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-        dateFormatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
+		let dateFormatter = DateFormatter("yyyyMMdd'T'HHmmss'Z'")
         return dateFormatter
     }()
+	
     public static let ymdDateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-        dateFormatter.dateFormat = "yyyyMMdd"
+		let dateFormatter = DateFormatter("yyyyMMdd")
         return dateFormatter
     }()
 
     internal static let ISO8601DateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let dateFormatter = DateFormatter("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
         return dateFormatter
     }()
 
