@@ -11,7 +11,12 @@ import JavaScriptCore
 
 public struct Iterator {
     public static let endlessRecurrenceCount = 500
-    internal static let rruleContext: JSContext? = {
+}
+
+public extension RecurrenceRule {
+    
+    func newJSContext() -> JSContext?
+    {
         guard let rrulejs = JavaScriptBridge.rrulejs() else {
             return nil
         }
@@ -21,18 +26,17 @@ public struct Iterator {
         }
         let _ = context?.evaluateScript(rrulejs)
         return context
-    }()
-}
-
-public extension RecurrenceRule {
+    }
+    
     func allOccurrences(endless endlessRecurrenceCount: Int = Iterator.endlessRecurrenceCount) -> [Date] {
         guard let _ = JavaScriptBridge.rrulejs() else {
             return []
         }
 
         let ruleJSONString = toJSONString(endless: endlessRecurrenceCount)
-        let _ = Iterator.rruleContext?.evaluateScript("var rule = new RRule({ \(ruleJSONString) })")
-        guard let allOccurrences = Iterator.rruleContext?.evaluateScript("rule.all()").toArray() as? [Date] else {
+        let context = newJSContext()
+        let _ = context?.evaluateScript("var rule = new RRule({ \(ruleJSONString) })")
+        guard let allOccurrences = context?.evaluateScript("rule.all()").toArray() as? [Date] else {
             return []
         }
 
@@ -67,8 +71,9 @@ public extension RecurrenceRule {
         let untilDateJSON = RRule.ISO8601DateFormatter.string(from: untilDate)
 
         let ruleJSONString = toJSONString(endless: endlessRecurrenceCount)
-        let _ = Iterator.rruleContext?.evaluateScript("var rule = new RRule({ \(ruleJSONString) })")
-        guard let betweenOccurrences = Iterator.rruleContext?.evaluateScript("rule.between(new Date('\(beginDateJSON)'), new Date('\(untilDateJSON)'))").toArray() as? [Date] else {
+        let context = newJSContext()
+        let _ = context?.evaluateScript("var rule = new RRule({ \(ruleJSONString) })")
+        guard let betweenOccurrences = context?.evaluateScript("rule.between(new Date('\(beginDateJSON)'), new Date('\(untilDateJSON)'))").toArray() as? [Date] else {
             return []
         }
 
