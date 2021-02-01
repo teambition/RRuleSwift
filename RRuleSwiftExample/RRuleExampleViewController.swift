@@ -61,6 +61,7 @@ class RRuleExampleViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         testRRuleIterator()
+        testRRuleIteratorMultipleThreads()
     }
 
     fileprivate func setupUI() {
@@ -72,7 +73,26 @@ class RRuleExampleViewController: UIViewController {
         textView.delegate = self
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(resetButtonTapped(_:)))
     }
+    
+    fileprivate func testRRuleIteratorMultipleThreads() {
+        DispatchQueue.global(qos: .background).async {
+            for n in 1...1000
+            {
+                self.testRRuleIterator(n)
+            }
+        }
 
+        DispatchQueue.global(qos: .background).async {
+            for n in 1...1000
+            {
+                self.testRRuleIterator(-n)
+            }
+        }
+    }
+    
+    fileprivate func testRRuleIterator(_ n : Int) {
+    }
+    
     fileprivate func testRRuleIterator() {
         let dateFormatter: DateFormatter = {
             let dateFormatter = DateFormatter()
