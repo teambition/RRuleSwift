@@ -61,7 +61,6 @@ class RRuleExampleViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         testRRuleIterator()
-        testRRuleIteratorMultipleThreads()
     }
 
     fileprivate func setupUI() {
@@ -76,14 +75,14 @@ class RRuleExampleViewController: UIViewController {
     
     fileprivate func testRRuleIteratorMultipleThreads() {
         DispatchQueue.global(qos: .background).async {
-            for n in 1...1000
+            for n in 1...100
             {
                 self.testRRuleIterator(n)
             }
         }
 
         DispatchQueue.global(qos: .background).async {
-            for n in 1...1000
+            for n in 1...100
             {
                 self.testRRuleIterator(-n)
             }
@@ -91,6 +90,40 @@ class RRuleExampleViewController: UIViewController {
     }
     
     fileprivate func testRRuleIterator(_ n : Int) {
+        let ruleFormat = "RRULE:FREQ=WEEKLY;DTSTART=%@%@01T014500Z;INTERVAL=1;UNTIL=%@%@01T014500Z"
+        let calendar = NSCalendar.current
+        var startDateComponents = DateComponents()
+        startDateComponents.month = n;
+        let startDate = calendar.date(byAdding: startDateComponents, to: Date())
+        startDateComponents = calendar.dateComponents([.year, .month], from: startDate!)
+        
+        var endDateComponents = DateComponents()
+        endDateComponents.month = 6
+        let endDate = calendar.date(byAdding: endDateComponents, to: startDate!)
+        endDateComponents = calendar.dateComponents([.year, .month], from: endDate!)
+
+        var startDateMonth = String(startDateComponents.month!)
+        if (startDateComponents.month! < 10)
+        {
+            startDateMonth = "0".appending(startDateMonth)
+        }
+        var endDateMonth = String(endDateComponents.month!)
+        if (endDateComponents.month! < 10)
+        {
+            endDateMonth = "0".appending(endDateMonth)
+        }
+
+        let rruleString = String(format: ruleFormat, String(startDateComponents.year!), startDateMonth, String(endDateComponents.year!), endDateMonth )
+        
+        print ("rruleString: ", rruleString)
+        var rule = RecurrenceRule(rruleString: rruleString)!
+        
+        let occurrences = rule.allOccurrences()
+        print ("occurrences for rrule: ", rruleString, ", count:", occurrences.count, ", first:", occurrences.first)
+        if !calendar.isDate(startDate!, equalTo: occurrences.first!, toGranularity: .day)
+        {
+            print("dates mismatch, got: ", occurrences.first, ", expected: ", startDate)
+        }
     }
     
     fileprivate func testRRuleIterator() {
