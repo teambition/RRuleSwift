@@ -23,7 +23,7 @@ let package = Package(
         .target(
             name: "RRuleSwift-iOS",
             dependencies: [],
-            path: ""
+            path: "Sources"
         ),
     ]
 )
