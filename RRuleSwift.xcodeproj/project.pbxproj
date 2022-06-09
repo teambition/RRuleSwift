@@ -185,9 +185,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D31B139F1CA8E02E00D0B863 /* Build configuration list for PBXNativeTarget "RRuleSwift-iOS" */;
 			buildPhases = (
+				D31B13941CA8E02E00D0B863 /* Headers */,
 				D31B13921CA8E02E00D0B863 /* Sources */,
 				D31B13931CA8E02E00D0B863 /* Frameworks */,
-				D31B13941CA8E02E00D0B863 /* Headers */,
 				D31B13951CA8E02E00D0B863 /* Resources */,
 			);
 			buildRules = (
@@ -203,9 +203,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB48D13C1D641AD6001EE872 /* Build configuration list for PBXNativeTarget "RRuleSwift-watchOS" */;
 			buildPhases = (
+				EB48D1341D641AD6001EE872 /* Headers */,
 				EB48D1321D641AD6001EE872 /* Sources */,
 				EB48D1331D641AD6001EE872 /* Frameworks */,
-				EB48D1341D641AD6001EE872 /* Headers */,
 				EB48D1351D641AD6001EE872 /* Resources */,
 			);
 			buildRules = (
