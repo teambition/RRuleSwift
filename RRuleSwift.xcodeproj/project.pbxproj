@@ -25,8 +25,6 @@
 		EB48D1741D641D45001EE872 /* RecurrenceRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D15B1D641D45001EE872 /* RecurrenceRule.swift */; };
 		EB48D1751D641D45001EE872 /* RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D15C1D641D45001EE872 /* RRule.swift */; };
 		EB48D1761D641D45001EE872 /* RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D15C1D641D45001EE872 /* RRule.swift */; };
-		EB48D17B1D641D45001EE872 /* RRuleSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = EB48D1601D641D45001EE872 /* RRuleSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB48D17C1D641D45001EE872 /* RRuleSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = EB48D1601D641D45001EE872 /* RRuleSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F0EB3A5526D72DC400FDA3AE /* ExclusionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1521D641D45001EE872 /* ExclusionDate.swift */; };
 		F0EB3A5626D72DC400FDA3AE /* Iterators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1531D641D45001EE872 /* Iterators.swift */; };
 		F0EB3A5726D72DC400FDA3AE /* RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D15C1D641D45001EE872 /* RRule.swift */; };
@@ -38,7 +36,6 @@
 		F0EB3A5D26D72DC400FDA3AE /* JavaScriptBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1551D641D45001EE872 /* JavaScriptBridge.swift */; };
 		F0EB3A5E26D72DCA00FDA3AE /* nlp.js in Resources */ = {isa = PBXBuildFile; fileRef = EB48D1571D641D45001EE872 /* nlp.js */; };
 		F0EB3A5F26D72DCA00FDA3AE /* rrule.js in Resources */ = {isa = PBXBuildFile; fileRef = EB48D1581D641D45001EE872 /* rrule.js */; };
-		F0EB3A6026D72DD200FDA3AE /* RRuleSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = EB48D1601D641D45001EE872 /* RRuleSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,9 +54,7 @@
 		EB48D15C1D641D45001EE872 /* RRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRule.swift; sourceTree = "<group>"; };
 		EB48D15E1D641D45001EE872 /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
 		EB48D15F1D641D45001EE872 /* Info-watchOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-watchOS.plist"; sourceTree = "<group>"; };
-		EB48D1601D641D45001EE872 /* RRuleSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRuleSwift.h; sourceTree = "<group>"; };
 		F0EB3A4E26D72D8E00FDA3AE /* RRuleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RRuleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F0EB3A5026D72D8E00FDA3AE /* RRuleSwift_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRuleSwift_macOS.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +133,6 @@
 			children = (
 				EB48D15E1D641D45001EE872 /* Info-iOS.plist */,
 				EB48D15F1D641D45001EE872 /* Info-watchOS.plist */,
-				EB48D1601D641D45001EE872 /* RRuleSwift.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -146,7 +140,6 @@
 		F0EB3A4F26D72D8E00FDA3AE /* RRuleSwift-macOS */ = {
 			isa = PBXGroup;
 			children = (
-				F0EB3A5026D72D8E00FDA3AE /* RRuleSwift_macOS.h */,
 			);
 			path = "RRuleSwift-macOS";
 			sourceTree = "<group>";
@@ -158,7 +151,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB48D17B1D641D45001EE872 /* RRuleSwift.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +158,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB48D17C1D641D45001EE872 /* RRuleSwift.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +165,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0EB3A6026D72DD200FDA3AE /* RRuleSwift.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
