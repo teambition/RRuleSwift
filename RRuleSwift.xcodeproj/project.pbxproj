@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		F05EA10A2934C8A900B30790 /* XCFramework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F05EA10B2934C8A900B30790 /* Build configuration list for PBXAggregateTarget "XCFramework" */;
+			buildPhases = (
+				F05EA1142934C8C700B30790 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = XCFramework;
+			productName = Teambition.RRule;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		EB48D1611D641D45001EE872 /* EKWeekday+RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */; };
 		EB48D1621D641D45001EE872 /* EKWeekday+RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */; };
@@ -54,6 +68,7 @@
 		EB48D15C1D641D45001EE872 /* RRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRule.swift; sourceTree = "<group>"; };
 		EB48D15E1D641D45001EE872 /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
 		EB48D15F1D641D45001EE872 /* Info-watchOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-watchOS.plist"; sourceTree = "<group>"; };
+		F05EA1052934C89200B30790 /* RRule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRule.h; sourceTree = "<group>"; };
 		F0EB3A4E26D72D8E00FDA3AE /* RRuleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RRuleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,6 +102,7 @@
 			children = (
 				EB48D1311D641ABB001EE872 /* Sources */,
 				F0EB3A4F26D72D8E00FDA3AE /* RRuleSwift-macOS */,
+				F05EA1042934C89200B30790 /* RRule */,
 				D31B13981CA8E02E00D0B863 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,6 +151,14 @@
 				EB48D15F1D641D45001EE872 /* Info-watchOS.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F05EA1042934C89200B30790 /* RRule */ = {
+			isa = PBXGroup;
+			children = (
+				F05EA1052934C89200B30790 /* RRule.h */,
+			);
+			path = RRule;
 			sourceTree = "<group>";
 		};
 		F0EB3A4F26D72D8E00FDA3AE /* RRuleSwift-macOS */ = {
@@ -242,6 +266,10 @@
 						CreatedOnToolsVersion = 7.3;
 						LastSwiftMigration = 1020;
 					};
+					F05EA10A2934C8A900B30790 = {
+						CreatedOnToolsVersion = 14.1;
+						ProvisioningStyle = Automatic;
+					};
 					F0EB3A4D26D72D8E00FDA3AE = {
 						CreatedOnToolsVersion = 13.0;
 						DevelopmentTeam = XMJKJH96ZT;
@@ -265,6 +293,7 @@
 				D31B13961CA8E02E00D0B863 /* RRuleSwift-iOS */,
 				EB48D1361D641AD6001EE872 /* RRuleSwift-watchOS */,
 				F0EB3A4D26D72D8E00FDA3AE /* RRuleSwift-macOS */,
+				F05EA10A2934C8A900B30790 /* XCFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -296,6 +325,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F05EA1142934C8C700B30790 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "# Remove existing xcframework if one exists\nrm -rf ./RRuleSwift.xcframework\n\nxcodebuild archive -project \"RRuleSwift.xcodeproj\" -scheme \"RRuleSwift iOS\" -destination \"generic/platform=iOS\" -archivePath \"archives/RRule-iOS\" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES -derivedDataPath ./DerivedData\n\nxcodebuild archive -project \"RRuleSwift.xcodeproj\" -scheme \"RRuleSwift iOS\" -destination \"generic/platform=iOS Simulator\" -archivePath \"archives/RRule-iOSSim\" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES -derivedDataPath ./DerivedData\n\nxcodebuild archive -project \"RRuleSwift.xcodeproj\" -scheme \"RRuleSwift watchOS\" -destination \"generic/platform=watchOS\" -archivePath \"archives/RRule-watchOS\" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES -derivedDataPath ./DerivedData\n\nxcodebuild archive -project \"RRuleSwift.xcodeproj\" -scheme \"RRuleSwift watchOS\" -destination \"generic/platform=watchOS Simulator\" -archivePath \"archives/RRule-watchOSSim\" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES -derivedDataPath ./DerivedData\n  \nxcodebuild archive -project \"RRuleSwift.xcodeproj\" -scheme RRule -destination \"generic/platform=macOS\" -archivePath \"archives/RRule-macOS\" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES -derivedDataPath ./DerivedData\n  \n# Build xcframework\nxcodebuild -create-xcframework \\\n -allow-internal-distribution \\\n -framework ./archives/RRule-iOS.xcarchive/Products/Library/Frameworks/RRuleSwift.framework \\\n -debug-symbols \"${PWD}/archives/RRule-iOS.xcarchive/dSYMs/RRuleSwift.framework.dSYM\" \\\n -framework ./archives/RRule-iOSSim.xcarchive/Products/Library/Frameworks/RRuleSwift.framework \\\n -debug-symbols \"${PWD}/archives/RRule-iOSSim.xcarchive/dSYMs/RRuleSwift.framework.dSYM\" \\\n -framework ./archives/RRule-watchOS.xcarchive/Products/Library/Frameworks/RRuleSwift.framework \\\n -debug-symbols \"${PWD}/archives/RRule-watchOS.xcarchive/dSYMs/RRuleSwift.framework.dSYM\" \\\n -framework ./archives/RRule-watchOSSim.xcarchive/Products/Library/Frameworks/RRuleSwift.framework \\\n -debug-symbols \"${PWD}/archives/RRule-watchOSSim.xcarchive/dSYMs/RRuleSwift.framework.dSYM\" \\\n -framework ./archives/RRule-macOS.xcarchive/Products/Library/Frameworks/RRuleSwift.framework \\\n -output RRuleSwift.xcframework\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D31B13921CA8E02E00D0B863 /* Sources */ = {
@@ -551,6 +600,22 @@
 			};
 			name = Release;
 		};
+		F05EA10C2934C8A900B30790 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F05EA10D2934C8A900B30790 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		F0EB3A5326D72D8E00FDA3AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -649,6 +714,15 @@
 			buildConfigurations = (
 				EB48D13D1D641AD6001EE872 /* Debug */,
 				EB48D13E1D641AD6001EE872 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F05EA10B2934C8A900B30790 /* Build configuration list for PBXAggregateTarget "XCFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F05EA10C2934C8A900B30790 /* Debug */,
+				F05EA10D2934C8A900B30790 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
