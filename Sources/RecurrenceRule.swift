@@ -92,4 +92,20 @@ public struct RecurrenceRule {
     public func toRRuleString() -> String {
         return RRule.stringFromRule(self)
     }
+    
+    #if os(iOS) || os(macOS)
+    public func toText() -> String? {
+        let paths = JavaScriptBridge.rrulejs()
+        
+        guard let _ = paths.lib,
+              let _ = paths.nlp else {
+            return nil
+        }
+        
+        let ruleJSONString = toJSONString(endless: Iterator.endlessRecurrenceCount)
+        let _ = Iterator.rruleContext?.evaluateScript("var rule = new RRule({ \(ruleJSONString) })")
+        
+        return Iterator.rruleContext?.evaluateScript("rule.toText()").toString()
+    }
+    #endif
 }
