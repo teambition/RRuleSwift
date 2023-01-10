@@ -12,7 +12,9 @@ import JavaScriptCore
 public struct Iterator {
     public static let endlessRecurrenceCount = 500
     internal static let rruleContext: JSContext? = {
-        guard let rrulejs = JavaScriptBridge.rrulejs() else {
+        let scripts = JavaScriptBridge.rrulejs()
+        guard let rrulejs = scripts.lib,
+              let nlpJS = scripts.nlp else {
             return nil
         }
         let context = JSContext()
@@ -20,13 +22,14 @@ public struct Iterator {
             print("[RRuleSwift] rrule.js error: \(String(describing: exception))")
         }
         let _ = context?.evaluateScript(rrulejs)
+        let _ = context?.evaluateScript(nlpJS)
         return context
     }()
 }
 
 public extension RecurrenceRule {
     func allOccurrences(endless endlessRecurrenceCount: Int = Iterator.endlessRecurrenceCount) -> [Date] {
-        guard let _ = JavaScriptBridge.rrulejs() else {
+        guard let _ = JavaScriptBridge.rrulejs().lib else {
             return []
         }
 
@@ -57,7 +60,7 @@ public extension RecurrenceRule {
     }
 
     func occurrences(between date: Date, and otherDate: Date, endless endlessRecurrenceCount: Int = Iterator.endlessRecurrenceCount) -> [Date] {
-        guard let _ = JavaScriptBridge.rrulejs() else {
+        guard let _ = JavaScriptBridge.rrulejs().lib else {
             return []
         }
 

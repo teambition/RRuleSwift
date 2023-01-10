@@ -94,6 +94,7 @@ class RRuleExampleViewController: UIViewController {
             print(dateFormatter.string(from: occurrence))
         }
         print("\n")
+        print("text: \(String(describing: rule.toText()))")
     }
 
     @objc func resetButtonTapped(_ sender: UIBarButtonItem) {

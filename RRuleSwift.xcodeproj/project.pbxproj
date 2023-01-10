@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		F05EA10A2934C8A900B30790 /* XCFramework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F05EA10B2934C8A900B30790 /* Build configuration list for PBXAggregateTarget "XCFramework" */;
+			buildPhases = (
+				F05EA1142934C8C700B30790 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = XCFramework;
+			productName = Teambition.RRule;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		EB48D1611D641D45001EE872 /* EKWeekday+RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */; };
 		EB48D1621D641D45001EE872 /* EKWeekday+RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */; };
@@ -25,8 +39,17 @@
 		EB48D1741D641D45001EE872 /* RecurrenceRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D15B1D641D45001EE872 /* RecurrenceRule.swift */; };
 		EB48D1751D641D45001EE872 /* RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D15C1D641D45001EE872 /* RRule.swift */; };
 		EB48D1761D641D45001EE872 /* RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D15C1D641D45001EE872 /* RRule.swift */; };
-		EB48D17B1D641D45001EE872 /* RRuleSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = EB48D1601D641D45001EE872 /* RRuleSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB48D17C1D641D45001EE872 /* RRuleSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = EB48D1601D641D45001EE872 /* RRuleSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F0EB3A5526D72DC400FDA3AE /* ExclusionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1521D641D45001EE872 /* ExclusionDate.swift */; };
+		F0EB3A5626D72DC400FDA3AE /* Iterators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1531D641D45001EE872 /* Iterators.swift */; };
+		F0EB3A5726D72DC400FDA3AE /* RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D15C1D641D45001EE872 /* RRule.swift */; };
+		F0EB3A5826D72DC400FDA3AE /* EKWeekday+RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */; };
+		F0EB3A5926D72DC400FDA3AE /* RecurrenceRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D15B1D641D45001EE872 /* RecurrenceRule.swift */; };
+		F0EB3A5A26D72DC400FDA3AE /* RecurrenceFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D15A1D641D45001EE872 /* RecurrenceFrequency.swift */; };
+		F0EB3A5B26D72DC400FDA3AE /* NSDate+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1591D641D45001EE872 /* NSDate+Comparison.swift */; };
+		F0EB3A5C26D72DC400FDA3AE /* InclusionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1541D641D45001EE872 /* InclusionDate.swift */; };
+		F0EB3A5D26D72DC400FDA3AE /* JavaScriptBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1551D641D45001EE872 /* JavaScriptBridge.swift */; };
+		F0EB3A5E26D72DCA00FDA3AE /* nlp.js in Resources */ = {isa = PBXBuildFile; fileRef = EB48D1571D641D45001EE872 /* nlp.js */; };
+		F0EB3A5F26D72DCA00FDA3AE /* rrule.js in Resources */ = {isa = PBXBuildFile; fileRef = EB48D1581D641D45001EE872 /* rrule.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,18 +57,19 @@
 		EB48D1371D641AD6001EE872 /* RRuleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RRuleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EKWeekday+RRule.swift"; sourceTree = "<group>"; };
 		EB48D1521D641D45001EE872 /* ExclusionDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExclusionDate.swift; sourceTree = "<group>"; };
-		EB48D1531D641D45001EE872 /* Iterators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Iterators.swift; sourceTree = "<group>"; };
+		EB48D1531D641D45001EE872 /* Iterators.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Iterators.swift; sourceTree = "<group>"; tabWidth = 4; };
 		EB48D1541D641D45001EE872 /* InclusionDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InclusionDate.swift; sourceTree = "<group>"; };
-		EB48D1551D641D45001EE872 /* JavaScriptBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JavaScriptBridge.swift; sourceTree = "<group>"; };
+		EB48D1551D641D45001EE872 /* JavaScriptBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = JavaScriptBridge.swift; sourceTree = "<group>"; tabWidth = 4; };
 		EB48D1571D641D45001EE872 /* nlp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = nlp.js; sourceTree = "<group>"; };
 		EB48D1581D641D45001EE872 /* rrule.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = rrule.js; sourceTree = "<group>"; };
 		EB48D1591D641D45001EE872 /* NSDate+Comparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Comparison.swift"; sourceTree = "<group>"; };
 		EB48D15A1D641D45001EE872 /* RecurrenceFrequency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecurrenceFrequency.swift; sourceTree = "<group>"; };
-		EB48D15B1D641D45001EE872 /* RecurrenceRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecurrenceRule.swift; sourceTree = "<group>"; };
+		EB48D15B1D641D45001EE872 /* RecurrenceRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = RecurrenceRule.swift; sourceTree = "<group>"; tabWidth = 4; };
 		EB48D15C1D641D45001EE872 /* RRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRule.swift; sourceTree = "<group>"; };
 		EB48D15E1D641D45001EE872 /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
 		EB48D15F1D641D45001EE872 /* Info-watchOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-watchOS.plist"; sourceTree = "<group>"; };
-		EB48D1601D641D45001EE872 /* RRuleSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRuleSwift.h; sourceTree = "<group>"; };
+		F05EA1052934C89200B30790 /* RRule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRule.h; sourceTree = "<group>"; };
+		F0EB3A4E26D72D8E00FDA3AE /* RRuleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RRuleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +87,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F0EB3A4B26D72D8E00FDA3AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -70,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				EB48D1311D641ABB001EE872 /* Sources */,
+				F0EB3A4F26D72D8E00FDA3AE /* RRuleSwift-macOS */,
+				F05EA1042934C89200B30790 /* RRule */,
 				D31B13981CA8E02E00D0B863 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,6 +112,7 @@
 			children = (
 				D31B13971CA8E02E00D0B863 /* RRuleSwift.framework */,
 				EB48D1371D641AD6001EE872 /* RRuleSwift.framework */,
+				F0EB3A4E26D72D8E00FDA3AE /* RRuleSwift.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,9 +149,23 @@
 			children = (
 				EB48D15E1D641D45001EE872 /* Info-iOS.plist */,
 				EB48D15F1D641D45001EE872 /* Info-watchOS.plist */,
-				EB48D1601D641D45001EE872 /* RRuleSwift.h */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F05EA1042934C89200B30790 /* RRule */ = {
+			isa = PBXGroup;
+			children = (
+				F05EA1052934C89200B30790 /* RRule.h */,
+			);
+			path = RRule;
+			sourceTree = "<group>";
+		};
+		F0EB3A4F26D72D8E00FDA3AE /* RRuleSwift-macOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "RRuleSwift-macOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +175,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB48D17B1D641D45001EE872 /* RRuleSwift.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +182,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB48D17C1D641D45001EE872 /* RRuleSwift.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0EB3A4926D72D8E00FDA3AE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,9 +199,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D31B139F1CA8E02E00D0B863 /* Build configuration list for PBXNativeTarget "RRuleSwift-iOS" */;
 			buildPhases = (
+				D31B13941CA8E02E00D0B863 /* Headers */,
 				D31B13921CA8E02E00D0B863 /* Sources */,
 				D31B13931CA8E02E00D0B863 /* Frameworks */,
-				D31B13941CA8E02E00D0B863 /* Headers */,
 				D31B13951CA8E02E00D0B863 /* Resources */,
 			);
 			buildRules = (
@@ -164,9 +217,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB48D13C1D641AD6001EE872 /* Build configuration list for PBXNativeTarget "RRuleSwift-watchOS" */;
 			buildPhases = (
+				EB48D1341D641AD6001EE872 /* Headers */,
 				EB48D1321D641AD6001EE872 /* Sources */,
 				EB48D1331D641AD6001EE872 /* Frameworks */,
-				EB48D1341D641AD6001EE872 /* Headers */,
 				EB48D1351D641AD6001EE872 /* Resources */,
 			);
 			buildRules = (
@@ -178,13 +231,31 @@
 			productReference = EB48D1371D641AD6001EE872 /* RRuleSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		F0EB3A4D26D72D8E00FDA3AE /* RRuleSwift-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0EB3A5226D72D8E00FDA3AE /* Build configuration list for PBXNativeTarget "RRuleSwift-macOS" */;
+			buildPhases = (
+				F0EB3A4926D72D8E00FDA3AE /* Headers */,
+				F0EB3A4A26D72D8E00FDA3AE /* Sources */,
+				F0EB3A4B26D72D8E00FDA3AE /* Frameworks */,
+				F0EB3A4C26D72D8E00FDA3AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RRuleSwift-macOS";
+			productName = "RRuleSwift-macOS";
+			productReference = F0EB3A4E26D72D8E00FDA3AE /* RRuleSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D31B138E1CA8E02E00D0B863 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1400;
 				ORGANIZATIONNAME = Teambition;
 				TargetAttributes = {
 					D31B13961CA8E02E00D0B863 = {
@@ -194,6 +265,15 @@
 					EB48D1361D641AD6001EE872 = {
 						CreatedOnToolsVersion = 7.3;
 						LastSwiftMigration = 1020;
+					};
+					F05EA10A2934C8A900B30790 = {
+						CreatedOnToolsVersion = 14.1;
+						ProvisioningStyle = Automatic;
+					};
+					F0EB3A4D26D72D8E00FDA3AE = {
+						CreatedOnToolsVersion = 13.0;
+						DevelopmentTeam = XMJKJH96ZT;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -212,6 +292,8 @@
 			targets = (
 				D31B13961CA8E02E00D0B863 /* RRuleSwift-iOS */,
 				EB48D1361D641AD6001EE872 /* RRuleSwift-watchOS */,
+				F0EB3A4D26D72D8E00FDA3AE /* RRuleSwift-macOS */,
+				F05EA10A2934C8A900B30790 /* XCFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -233,7 +315,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F0EB3A4C26D72D8E00FDA3AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0EB3A5E26D72DCA00FDA3AE /* nlp.js in Resources */,
+				F0EB3A5F26D72DCA00FDA3AE /* rrule.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F05EA1142934C8C700B30790 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "# Remove existing xcframework if one exists\nrm -rf ./RRuleSwift.xcframework\n\nxcodebuild archive -project \"RRuleSwift.xcodeproj\" -scheme \"RRuleSwift iOS\" -destination \"generic/platform=iOS\" -archivePath \"archives/RRule-iOS\" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES -derivedDataPath ./DerivedData\n\nxcodebuild archive -project \"RRuleSwift.xcodeproj\" -scheme \"RRuleSwift iOS\" -destination \"generic/platform=iOS Simulator\" -archivePath \"archives/RRule-iOSSim\" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES -derivedDataPath ./DerivedData\n\nxcodebuild archive -project \"RRuleSwift.xcodeproj\" -scheme \"RRuleSwift watchOS\" -destination \"generic/platform=watchOS\" -archivePath \"archives/RRule-watchOS\" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES -derivedDataPath ./DerivedData\n\nxcodebuild archive -project \"RRuleSwift.xcodeproj\" -scheme \"RRuleSwift watchOS\" -destination \"generic/platform=watchOS Simulator\" -archivePath \"archives/RRule-watchOSSim\" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES -derivedDataPath ./DerivedData\n  \nxcodebuild archive -project \"RRuleSwift.xcodeproj\" -scheme RRule -destination \"generic/platform=macOS\" -archivePath \"archives/RRule-macOS\" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES -derivedDataPath ./DerivedData\n  \n# Build xcframework\nxcodebuild -create-xcframework \\\n -allow-internal-distribution \\\n -framework ./archives/RRule-iOS.xcarchive/Products/Library/Frameworks/RRuleSwift.framework \\\n -debug-symbols \"${PWD}/archives/RRule-iOS.xcarchive/dSYMs/RRuleSwift.framework.dSYM\" \\\n -framework ./archives/RRule-iOSSim.xcarchive/Products/Library/Frameworks/RRuleSwift.framework \\\n -debug-symbols \"${PWD}/archives/RRule-iOSSim.xcarchive/dSYMs/RRuleSwift.framework.dSYM\" \\\n -framework ./archives/RRule-watchOS.xcarchive/Products/Library/Frameworks/RRuleSwift.framework \\\n -debug-symbols \"${PWD}/archives/RRule-watchOS.xcarchive/dSYMs/RRuleSwift.framework.dSYM\" \\\n -framework ./archives/RRule-watchOSSim.xcarchive/Products/Library/Frameworks/RRuleSwift.framework \\\n -debug-symbols \"${PWD}/archives/RRule-watchOSSim.xcarchive/dSYMs/RRuleSwift.framework.dSYM\" \\\n -framework ./archives/RRule-macOS.xcarchive/Products/Library/Frameworks/RRuleSwift.framework \\\n -output RRuleSwift.xcframework\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D31B13921CA8E02E00D0B863 /* Sources */ = {
@@ -266,6 +377,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F0EB3A4A26D72D8E00FDA3AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0EB3A5C26D72DC400FDA3AE /* InclusionDate.swift in Sources */,
+				F0EB3A5526D72DC400FDA3AE /* ExclusionDate.swift in Sources */,
+				F0EB3A5626D72DC400FDA3AE /* Iterators.swift in Sources */,
+				F0EB3A5B26D72DC400FDA3AE /* NSDate+Comparison.swift in Sources */,
+				F0EB3A5A26D72DC400FDA3AE /* RecurrenceFrequency.swift in Sources */,
+				F0EB3A5726D72DC400FDA3AE /* RRule.swift in Sources */,
+				F0EB3A5D26D72DC400FDA3AE /* JavaScriptBridge.swift in Sources */,
+				F0EB3A5926D72DC400FDA3AE /* RecurrenceRule.swift in Sources */,
+				F0EB3A5826D72DC400FDA3AE /* EKWeekday+RRule.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
@@ -293,6 +420,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -318,7 +446,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -353,6 +481,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -372,7 +501,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -471,6 +600,94 @@
 			};
 			name = Release;
 		};
+		F05EA10C2934C8A900B30790 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F05EA10D2934C8A900B30790 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F0EB3A5326D72D8E00FDA3AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = XMJKJH96ZT;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Teambition. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 0.5.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dezinezync.RRuleSwift-macOS";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = RRuleSwift;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F0EB3A5426D72D8E00FDA3AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = XMJKJH96ZT;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Teambition. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 0.5.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dezinezync.RRuleSwift-macOS";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = RRuleSwift;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -497,6 +714,24 @@
 			buildConfigurations = (
 				EB48D13D1D641AD6001EE872 /* Debug */,
 				EB48D13E1D641AD6001EE872 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F05EA10B2934C8A900B30790 /* Build configuration list for PBXAggregateTarget "XCFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F05EA10C2934C8A900B30790 /* Debug */,
+				F05EA10D2934C8A900B30790 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0EB3A5226D72D8E00FDA3AE /* Build configuration list for PBXNativeTarget "RRuleSwift-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0EB3A5326D72D8E00FDA3AE /* Debug */,
+				F0EB3A5426D72D8E00FDA3AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1400"
+   LastUpgradeVersion = "1410"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EB48D1361D641AD6001EE872"
-               BuildableName = "RRuleSwift.framework"
-               BlueprintName = "RRuleSwift-watchOS"
+               BlueprintIdentifier = "F05EA10A2934C8A900B30790"
+               BuildableName = "XCFramework"
+               BlueprintName = "XCFramework"
                ReferencedContainer = "container:RRuleSwift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -40,15 +40,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EB48D1361D641AD6001EE872"
-            BuildableName = "RRuleSwift.framework"
-            BlueprintName = "RRuleSwift-watchOS"
-            ReferencedContainer = "container:RRuleSwift.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -59,9 +50,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EB48D1361D641AD6001EE872"
-            BuildableName = "RRuleSwift.framework"
-            BlueprintName = "RRuleSwift-watchOS"
+            BlueprintIdentifier = "F05EA10A2934C8A900B30790"
+            BuildableName = "XCFramework"
+            BlueprintName = "XCFramework"
             ReferencedContainer = "container:RRuleSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

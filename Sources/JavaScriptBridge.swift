@@ -10,16 +10,29 @@ import Foundation
 import EventKit
 
 internal struct JavaScriptBridge {
-    internal static func rrulejs() -> String? {
+    internal static func rrulejs() -> (lib: String?, nlp: String?) {
+        
+        #if os(macOS)
+        let libPath = Bundle(identifier: "com.dezinezync.RRuleSwift-macOS")?.path(forResource: "rrule", ofType: "js") ?? Bundle.main.path(forResource: "rrule", ofType: "js")
+        let nlpPath = Bundle(identifier: "com.dezinezync.RRuleSwift-macOS")?.path(forResource: "nlp", ofType: "js") ?? Bundle.main.path(forResource: "nlp", ofType: "js")
+        #else
         let libPath = Bundle(identifier: "Teambition.RRuleSwift-iOS")?.path(forResource: "rrule", ofType: "js") ?? Bundle.main.path(forResource: "rrule", ofType: "js")
-        guard let rrulelibPath = libPath else {
-            return nil
+        let nlpPath = Bundle(identifier: "Teambition.RRuleSwift-iOS")?.path(forResource: "nlp", ofType: "js") ?? Bundle.main.path(forResource: "nlp", ofType: "js")
+        #endif
+        
+        guard let rrulelibPath = libPath,
+              let nlpPath else {
+            return (nil, nil)
         }
 
         do {
-            return try String(contentsOfFile: rrulelibPath)
-        } catch _ {
-            return nil
+            let lib = try String(contentsOfFile: rrulelibPath)
+            let nlp = try String(contentsOfFile: nlpPath)
+            
+            return (lib, nlp)
+        }
+        catch _ {
+            return (nil, nil)
         }
     }
 }
